@@ -4,7 +4,7 @@
 
 # Site
 title: 个人笔记
-subtitle: Go!
+subtitle: 这段代码有毒，不小心上瘾了！
 description: 前端小蜗牛🐌
 author: 凌子亦
 language: zh-Hans
@@ -25,7 +25,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts
