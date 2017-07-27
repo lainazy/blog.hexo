@@ -78,5 +78,12 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:lainazy/lainazy.github.io.git
+  repo: git@github.com:lainazy/lainazy.github.io
   branch: master
+
+# Search settings
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
