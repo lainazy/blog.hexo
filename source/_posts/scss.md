@@ -22,6 +22,7 @@ tags: css
 #content article p { margin-bottom: 1.4em }
 #content aside { background-color: #EEE }
 ```
+
 ```scss
 article {
   ~ article { border-top: 1px dashed #ccc }    -- 相当于 & ~ article { border-top: 1px dashed #ccc }
@@ -60,6 +61,7 @@ nav {
   border-color: #ccc;
 }
 ```
+
 ```scss
 nav {
   border: 1px solid #ccc {
@@ -111,6 +113,7 @@ $new_content: "First time reference" !default;
   new-content: "First time reference";
 }
 ```
+
 ```scss
 $content: null;
 $content: "Non-null content" !default;
@@ -150,7 +153,7 @@ $gutter-width: 10px;
 > 局部文件(片段)：文件名以下划线(\_)开头，编译时不会生成对应的css文件
 > 局部文件(片段)的导入可以省略文件名中的下划线(\_)
 > 同一目录下不能同时存在带下划线和不带下划线的同名文件，如_colors.scss不能和colors.scss共存
-
+>
 > 原生的CSS @import：会造成浏览器解析css时有额外的下载
 > 以下几种情况会使用原生的CSS @import
 > - 被导入的文件扩展名是.css，如@import "foo.css";
@@ -178,6 +181,7 @@ $gutter-width: 10px;
   color: blue;
 }
 ```
+
 ```scss
 // 嵌套@import
 // _example.scss
@@ -196,6 +200,7 @@ $gutter-width: 10px;
   }
 }
 ```
+
 ```scss
 // 一个@import引入多个文件
 @import "example", "colors";
@@ -231,6 +236,7 @@ $gutter-width: 10px;
   margin-top: 10px;
 }
 ```
+
 ```scss
 @mixin silly-links {
   a {    -- 注意这是规则嵌套
@@ -245,6 +251,7 @@ a {
   background-color: red;
 }
 ```
+
 ```scss
 @mixin no-bullets {
   list-style: none;
@@ -269,6 +276,7 @@ ul.plain li {
   margin-left: 0px;
 }
 ```
+
 ```scss
 @mixin highlighted-background { background-color: #fc0; }
 @mixin header-text { font-size: 20px; }
@@ -300,6 +308,7 @@ p {
   border-style: dashed;
 }
 ```
+
 ```scss
 @mixin sexy-border($color, $width: 1in) {
   border: {
@@ -322,6 +331,7 @@ h1 {
   border-style: dashed;
 }
 ```
+
 ```scss
 @mixin box-shadow($shadows...) {
   -moz-box-shadow: $shadows;
@@ -338,6 +348,7 @@ h1 {
   box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
 }
 ```
+
 ```scss
 @mixin colors($text, $background, $border) {
   color: $text;
@@ -400,6 +411,7 @@ $color: white;
   border-width: 3px;
 }
 ```
+
 ```scss
 .hoverlink {
   @extend a:hover;
@@ -412,6 +424,7 @@ $color: white;
   font-weight: bold;
 }
 ```
+
 ```scss
 // 多继承
 .error {
@@ -440,6 +453,7 @@ $color: white;
   border-width: 3px;
 }
 ```
+
 ```scss
 // 链式继承
 .error {
@@ -493,6 +507,7 @@ $color: white;
   font-weight: bold;
 }
 ```
+
 ```scss
 #admin .tabbar a {
   font-weight: bold;
@@ -544,6 +559,7 @@ $color: white;
   }
 }
 ```
+
 ```scss
 // works error
 .error {
@@ -561,7 +577,7 @@ $color: white;
 
 #### 运算
 
-> 具体运算规则参考：http://sass.bootcss.com/docs/sass-reference/#yun-suan
+> 具体运算规则参考：[SASS中文文档 - 运算](http://sass.bootcss.com/docs/sass-reference/#yun-suan)
 
 #### 插入符
 
@@ -603,8 +619,8 @@ p {
 ```
 
 > @for
-> @for $var from <start> through <end>    -- 包含<end>
-> @for $var from <start> to <end>    -- 不包含<end>
+> @for $var from &lt;start&gt; through &lt;end&gt;    -- 包含&lt;end&gt;
+> @for $var from &lt;start&gt; to &lt;end&gt;    -- 不包含&lt;end&gt;
 > $var可以是任意变量名
 
 ```scss
@@ -622,6 +638,7 @@ p {
   width: 6em;
 }
 ```
+
 ```scss
 @for $i from 1 to 3 {
   .item-#{$i} { width: 2em * $i; }
@@ -636,7 +653,7 @@ p {
 ```
 
 > @each
-> @each $var in <list>
+> @each $var in &lt;list&gt;
 > $var可以是任意变量名
 
 ```scss
@@ -699,6 +716,7 @@ $i: 6;
   }
 }
 ```
+
 ```scss
 @media screen {
   .sidebar {
@@ -729,5 +747,5 @@ body {
 
 #### 相关链接
 
-> http://sass.bootcss.com/docs/sass-reference/
-> http://www.sasschina.com/guide/
+> [SASS中文文档](http://sass.bootcss.com/docs/sass-reference/)
+> [SASS基础教程](http://www.sasschina.com/guide/)
