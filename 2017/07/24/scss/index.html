@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="个人笔记">
 <meta property="og:description" content="规则嵌套 规则嵌套主要用来避免重复写父选择器&amp;amp;符号用来表示父选择器的引用，不写&amp;amp;相当于在子选择器前面添加  1234567891011#content &amp;#123;  article &amp;#123;    h1 &amp;#123; color: #333 &amp;#125;    p &amp;#123; margin-bottom: 1.4em &amp;#125;  &amp;#125;  aside &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-27T09:31:03.000Z">
+<meta property="og:updated_time" content="2017-09-07T14:54:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scss使用指南">
 <meta name="twitter:description" content="规则嵌套 规则嵌套主要用来避免重复写父选择器&amp;amp;符号用来表示父选择器的引用，不写&amp;amp;相当于在子选择器前面添加  1234567891011#content &amp;#123;  article &amp;#123;    h1 &amp;#123; color: #333 &amp;#125;    p &amp;#123; margin-bottom: 1.4em &amp;#125;  &amp;#125;  aside &amp;#123;">
@@ -441,7 +441,7 @@
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// works fine</span></div><div class="line">@<span class="keyword">media</span> print &#123;</div><div class="line">  <span class="selector-class">.error</span> &#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="selector-class">.seriousError</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> .error;</div><div class="line">    <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// works error</span></div><div class="line"><span class="selector-class">.error</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> print &#123;</div><div class="line">  <span class="selector-class">.seriousError</span> &#123;</div><div class="line">    <span class="comment">// INVALID EXTEND: .error is used outside of the "@media print" directive</span></div><div class="line">    @<span class="keyword">extend</span> .error;</div><div class="line">    <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><blockquote>
-<p>具体运算规则参考：<a href="http://sass.bootcss.com/docs/sass-reference/#yun-suan" target="_blank" rel="external">http://sass.bootcss.com/docs/sass-reference/#yun-suan</a></p>
+<p>具体运算规则参考：<a href="http://sass.bootcss.com/docs/sass-reference/#yun-suan" target="_blank" rel="external">SASS中文文档 - 运算</a></p>
 </blockquote>
 <h4 id="插入符"><a href="#插入符" class="headerlink" title="插入符"></a>插入符</h4><blockquote>
 <p>#{}用来将变量值插入到指定位置</p>
@@ -452,12 +452,12 @@
 </blockquote>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$type</span>: monster;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  @<span class="keyword">if</span> <span class="variable">$type</span> == ocean &#123;</div><div class="line">    <span class="attribute">color</span>: blue;</div><div class="line">  &#125; @<span class="keyword">else</span> if <span class="variable">$type</span> == matador &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">  &#125; @<span class="keyword">else</span> if <span class="variable">$type</span> == monster &#123;</div><div class="line">    <span class="attribute">color</span>: green;</div><div class="line">  &#125; @<span class="keyword">else</span> &#123;</div><div class="line">    <span class="attribute">color</span>: black;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: green;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>@for<br>@for $var from <start> through <end>    – 包含<end><br>@for $var from <start> to <end>    – 不包含<end><br>$var可以是任意变量名</end></end></start></end></end></start></p>
+<p>@for<br>@for $var from &lt;start&gt; through &lt;end&gt;    – 包含&lt;end&gt;<br>@for $var from &lt;start&gt; to &lt;end&gt;    – 不包含&lt;end&gt;<br>$var可以是任意变量名</p>
 </blockquote>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 3 &#123;</div><div class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123; <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.item-1</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-3</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">6em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 to 3 &#123;</div><div class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123; <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.item-1</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>@each<br>@each $var in <list><br>$var可以是任意变量名</list></p>
+<p>@each<br>@each $var in &lt;list&gt;<br>$var可以是任意变量名</p>
 </blockquote>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">each</span> <span class="variable">$animal</span> in puma, sea-slug, egret, salamander &#123;</div><div class="line">  .#&#123;<span class="variable">$animal</span>&#125;-<span class="attribute">icon</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: url(<span class="string">'/images/#&#123;$animal&#125;.png'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.puma-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/puma.png'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.sea-slug-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/sea-slug.png'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.egret-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/egret.png'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.salamander-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/salamander.png'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
@@ -471,7 +471,7 @@
 </blockquote>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;    <span class="comment">// 这种注释内容不会出现在生成的css文件中</span></div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;    <span class="comment">/* 这种注释内容会出现在生成的css文件中 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h4><blockquote>
-<p><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="external">http://sass.bootcss.com/docs/sass-reference/</a><br><a href="http://www.sasschina.com/guide/" target="_blank" rel="external">http://www.sasschina.com/guide/</a></p>
+<p><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="external">SASS中文文档</a><br><a href="http://www.sasschina.com/guide/" target="_blank" rel="external">SASS基础教程</a></p>
 </blockquote>
 
       
@@ -521,7 +521,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/27/css-class-collection/" rel="prev" title="CSS常用样式记录">
+              <a href="/2017/07/27/css-often-used/" rel="prev" title="CSS常用样式记录">
                 CSS常用样式记录 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -596,7 +596,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +609,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -93,14 +93,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人笔记">
-<meta property="og:url" content="http://lainazy.com/404.html">
+<meta name="description" content="作用域、执行上下文、作用域链、闭包 作用域(静态)：标识符(变量名和函数名)的作用范围在代码编译阶段通过词法分析就已经确定 执行上下文： 创建阶段：生成变量对象(arguments，函数声明，变量声明)、维护作用域链(执行上下文作用域链)、确定this 执行阶段：变量对象转换为活动对象、执行可执行代码   作用域链： 函数作用域链：函数创建时保存在函数对象内部属性[[Scopes]]中，由不包含函">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript学习记录">
+<meta property="og:url" content="http://lainazy.com/2017/09/11/js-study/index.html">
 <meta property="og:site_name" content="个人笔记">
+<meta property="og:description" content="作用域、执行上下文、作用域链、闭包 作用域(静态)：标识符(变量名和函数名)的作用范围在代码编译阶段通过词法分析就已经确定 执行上下文： 创建阶段：生成变量对象(arguments，函数声明，变量声明)、维护作用域链(执行上下文作用域链)、确定this 执行阶段：变量对象转换为活动对象、执行可执行代码   作用域链： 函数作用域链：函数创建时保存在函数对象内部属性[[Scopes]]中，由不包含函">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T13:30:32.000Z">
+<meta property="og:updated_time" content="2017-09-11T11:00:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人笔记">
+<meta name="twitter:title" content="Javascript学习记录">
+<meta name="twitter:description" content="作用域、执行上下文、作用域链、闭包 作用域(静态)：标识符(变量名和函数名)的作用范围在代码编译阶段通过词法分析就已经确定 执行上下文： 创建阶段：生成变量对象(arguments，函数声明，变量声明)、维护作用域链(执行上下文作用域链)、确定this 执行阶段：变量对象转换为活动对象、执行可执行代码   作用域链： 函数作用域链：函数创建时保存在函数对象内部属性[[Scopes]]中，由不包含函">
 
 
 
@@ -128,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://lainazy.com/404.html"/>
+  <link rel="canonical" href="http://lainazy.com/2017/09/11/js-study/"/>
 
 
 
 
 
-  <title> | 个人笔记</title>
+  <title>Javascript学习记录 | 个人笔记</title>
   
 
 
@@ -288,19 +292,220 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline"></h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/09/11/js-study/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="凌子亦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人笔记">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript学习记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T18:42:19+08:00">
+                2017-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-      <script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8" homepageurl="http://lainazy.com" homepagename="回到我的主页">
-</script>
-    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="作用域、执行上下文、作用域链、闭包"><a href="#作用域、执行上下文、作用域链、闭包" class="headerlink" title="作用域、执行上下文、作用域链、闭包"></a>作用域、执行上下文、作用域链、闭包</h4><ul>
+<li>作用域(静态)：标识符(变量名和函数名)的作用范围在代码编译阶段通过词法分析就已经确定</li>
+<li>执行上下文：<ul>
+<li>创建阶段：生成变量对象(arguments，函数声明，变量声明)、维护作用域链(执行上下文作用域链)、确定this</li>
+<li>执行阶段：变量对象转换为活动对象、执行可执行代码</li>
+</ul>
+</li>
+<li>作用域链：<ul>
+<li>函数作用域链：函数创建时保存在函数对象内部属性[[Scopes]]中，由不包含函数自身作用域对象的所有上级作用域对象形成的集合</li>
+<li>执行上下文作用域链：函数执行时，创建自身作用域对象(活动对象)，并将其加入到函数作用域链顶端形成的集合</li>
+</ul>
+</li>
+<li>变量对象与活动对象的关系：this + 变量对象(创建阶段) = 活动对象(执行阶段)</li>
+<li>闭包与变量对象的关系：闭包的本质就是变量对象</li>
+<li>作用域与变量对象的关系：变量对象就是函数执行时生成的函数作用域对象</li>
+<li>作用域链与变量对象的关系：作用域链就是由变量对象(闭包、全局作用域对象)构成的单向链表，实际上是一个指向变量对象的指针列表</li>
+<li>作用域链与原型链的关系：<ul>
+<li>作用域链：针对函数中的变量及函数</li>
+<li>原型链：针对对象中的成员变量</li>
+</ul>
+</li>
+</ul>
+<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><ul>
+<li>如果函数被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。<br>– obj.fn() =&gt; fn()中的this指向obj(调用者对象)</li>
+<li>如果函数存在一个数组中，那么通过数组索引调用该函数时，函数内部的this指向该数组。<br>– arr: [fn(){}], arr<a href="">0</a> =&gt; fn()中的this指向arr(调用者对象)，可以把arr<a href="">0</a>看成arr.fn()</li>
+<li>如果函数独立调用，那么该函数内部的this，则指向undefined。<br>– fn() =&gt; fn()中的this指向undefined(没有调用者对象)</li>
+<li>但是在非严格模式中，当this指向undefined时，它会被自动指向全局对象。<br>– fn() =&gt; fn()中的this指向window</li>
+<li>使用call/apply方法显示指定调用者对象。<br>– fn.call(obj) =&gt; fn()中的this指向obj(调用者对象)，本质上其实应该是通过call()中的this指向fn函数对象实现的</li>
+</ul>
+<p><strong>结论：函数调用时，内部的this永远指向调用者对象。</strong><br><em>this的含义不是作用域，不指向作用域对象(变量对象)</em></p>
+<h4 id="prototype、-proto"><a href="#prototype、-proto" class="headerlink" title="prototype、__proto__"></a>prototype、__proto__</h4><ul>
+<li>所有对象(对象、数组、函数等)都具有内置属性__proto__，__proto__指向该对象的构造函数的原型(prototype)对象，原型链就是通过__proto__确定</li>
+<li>函数才具有prototype属性，prototype指向函数的原型对象，普通对象和数组没有prototype属性</li>
+<li>函数的原型(prototype)对象上才有constructor属性，constructor指向函数自身，普通对象和数组没有constructor属性</li>
+<li>对象获取某个属性时，先在对象自身范围内查找，自身范围内没有找到该属性时，再通过__proto__属性一级一级地向上在其构造函数的原型(prototype)对象上查找</li>
+</ul>
+<h4 id="，new-Object-，Object-create-null-及-new-func-，Object-create-func-prototype-的区别"><a href="#，new-Object-，Object-create-null-及-new-func-，Object-create-func-prototype-的区别" class="headerlink" title="{}，new Object()，Object.create(null) 及 new func()，Object.create(func.prototype) 的区别"></a>{}，new Object()，Object.create(null) 及 new func()，Object.create(func.prototype) 的区别</h4><ul>
+<li><code>var a = {};</code> – {}创建方式的速度比new Object()快，因为new方式要做额外的处理</li>
+<li><code>var b = new Object();</code> – a == b // false，a和b是两个对象，但其内部是一样的，b.constructor === b.__proto__.constructor === Object // true</li>
+<li><code>var c = Object.create(null);</code> – 创建的对象中没有任何属性，__proto__属性也没有</li>
+<li><code>var d = new Object(a);</code> – a === d // true，new Object() 如果传入的参数是对象，返回的就是它自身，如果传入的参数是数字或字符串，返回的是Number或String对象(与传入参数==而不===)</li>
+<li><p><code>var e = Object.create(a);</code> – e.__proto__ === a // true，Object.create(prototype[, descriptors]) 函数用来创建一个具有指定原型且可选择性地包含指定属性的对象</p>
+<pre><code>var func = function (name, option) {
+    this.name = name;
+    this.option = option;
+};
+var obj = new func(&apos;abc&apos;, {x:1, y:2});
+</code></pre></li>
+<li><p>– 实际的创建过程：先创建一个空对象，将其__proto__属性指向函数的原型，将this指向这个空对象并运行这个函数<br>– 实际的创建过程代码：var obj = new Object(); obj.__proto__ = func.prototype; func.apply(obj, [‘abc’, {x:1, y:2}]);<br>– obj对象自身中含有name和option属性</p>
+<pre><code>func.prototype.name = &apos;abc&apos;;
+func.prototype.option = {x:1, y:2};
+var obj = Object.create(func.prototype);
+</code></pre></li>
+<li><p>– obj对象自身中不含name和option属性，但可以通过访问其原型获取到name和option的值<br>– 修改属性时会在自身添加该属性，如修改name会在obj中添加name字段，不会修改原型中的name属性<br>– 修改对象的属性时，会先在原型链中查询是否存在该对象，若存在则修改原型链中已经存在的该对象的属性，若原型链中不存在该对象，则报错</p>
+</li>
+</ul>
+<h4 id="ES6-Promise-vs-JQuery-Promise"><a href="#ES6-Promise-vs-JQuery-Promise" class="headerlink" title="ES6 Promise vs JQuery Promise"></a>ES6 Promise vs JQuery Promise</h4><ul>
+<li>ES6中引入了一个microtask(job) queue概念，ES6 Promise通过microtask queue实现，resolve()执行时依次将then()中的回调函数加入microtask queue</li>
+<li>JQuery Promise的then()中回调函数的执行并不保证是异步的，resolve()/reject()的执行方式(sync/async)决定了then()中回调函数的执行方式</li>
+<li>JQuery Promise的实现原理：<ul>
+<li>JQuery内部会维护一个用来存放then()中回调函数的数组</li>
+<li>return deferred.promise()执行会返回一个Promise对象，然后会同步依次执行Promise对象的then()将其中的回调函数依次放入数组，并尝试执行数组中的回调函数</li>
+<li>resolve()执行时会修改Promise对象的状态(pending -&gt; resolved/fulfilled)，并尝试执行数组中的回调函数</li>
+<li>执行数组中的回调函数：遍历数组并根据Promise对象的状态(pending/resolved/fulfilled/rejected)做相应的执行</li>
+</ul>
+</li>
+</ul>
+<p>相关链接：</p>
+<blockquote>
+<p><a href="https://segmentfault.com/q/1010000008612124" target="_blank" rel="external">ES6 Promise和JQuery中Promise的区别</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/11/css-study/" rel="next" title="CSS学习记录">
+                <i class="fa fa-chevron-left"></i> CSS学习记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/11/browser-study/" rel="prev" title="浏览器学习记录">
+                浏览器学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -333,8 +538,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -387,6 +601,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域、执行上下文、作用域链、闭包"><span class="nav-number">1.</span> <span class="nav-text">作用域、执行上下文、作用域链、闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this"><span class="nav-number">2.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prototype、-proto"><span class="nav-number">3.</span> <span class="nav-text">prototype、__proto__</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#，new-Object-，Object-create-null-及-new-func-，Object-create-func-prototype-的区别"><span class="nav-number">4.</span> <span class="nav-text">{}，new Object()，Object.create(null) 及 new func()，Object.create(func.prototype) 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-Promise-vs-JQuery-Promise"><span class="nav-number">5.</span> <span class="nav-text">ES6 Promise vs JQuery Promise</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -507,10 +737,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="其他," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Mac 开发环境搭建 homebrew安装 – 执行 /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; node安装 – 通过nvm安装，nvm使用homebrew安装 jdk安装 – 执行java -version，若电脑本来没有">
+<meta name="keywords" content="其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杂记">
+<meta property="og:url" content="http://lainazy.com/2017/09/11/learn-by-self/index.html">
+<meta property="og:site_name" content="个人笔记">
+<meta property="og:description" content="Mac 开发环境搭建 homebrew安装 – 执行 /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; node安装 – 通过nvm安装，nvm使用homebrew安装 jdk安装 – 执行java -version，若电脑本来没有">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-11T10:38:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="杂记">
+<meta name="twitter:description" content="Mac 开发环境搭建 homebrew安装 – 执行 /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; node安装 – 通过nvm安装，nvm使用homebrew安装 jdk安装 – 执行java -version，若电脑本来没有">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lainazy.com/2017/09/11/learn-by-self/"/>
+
+
+
+
+
+  <title>杂记 | 个人笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cd28b3dc2fd62996f865517e994d2956";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">代码有毒，小心上瘾</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/09/11/learn-by-self/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="凌子亦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">杂记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T18:34:44+08:00">
+                2017-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Mac-开发环境搭建"><a href="#Mac-开发环境搭建" class="headerlink" title="Mac 开发环境搭建"></a>Mac 开发环境搭建</h4><ul>
+<li><code>homebrew安装</code> – 执行 <code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
+<li><code>node安装</code> – 通过nvm安装，nvm使用homebrew安装</li>
+<li><code>jdk安装</code> – 执行java -version，若电脑本来没有安装jdk会自动提示进入官网下载jdk安装</li>
+<li><code>android sdk安装</code> – 可以使用brew install android-sdk安装（注意需要翻墙）</li>
+<li><code>Xcode命令行工具安装</code> – 执行xcode-select –install（网上说其中包含git，但我没找到）</li>
+<li><code>git安装</code> – 执行brew install git</li>
+<li><code>svn安装</code> – 在xclient.info网站下载cornerstone工具安装，显然任何来源选项并直接选择：sudo spctl –master-disable</li>
+<li><code>cordova安装</code> – 执行sudo npm install -g cordova（npm所有的安装最好都翻墙）</li>
+<li><code>ionic安装</code> – 执行sudo npm install -g ionic</li>
+<li><code>gulp安装</code> – 执行sudo npm install -g gulp</li>
+<li><code>webpack安装</code> – 执行sudo npm install -g webpack</li>
+<li><code>vue-cli安装</code> – 执行sudo npm install -g vue-cli</li>
+</ul>
+<h4 id="Mac-Cordova-Ionic-打-android-–release-包"><a href="#Mac-Cordova-Ionic-打-android-–release-包" class="headerlink" title="Mac Cordova/Ionic 打 android –release 包"></a>Mac Cordova/Ionic 打 android –release 包</h4><ul>
+<li><code>ionic build android --release</code> – 生成android-armv7-release-unsigned.apk文件</li>
+<li><code>keytool -genkey -v -keystore release-key.keystore(数字签名文件名) -alias alias_name(项目别名) -keyalg RSA -keysize 2048 -validity 10000</code> – 生成数字签名文件</li>
+<li><code>ln -s platforms/androidild/outputs/apk android-apk(软链接替身名)</code> – 给android-armv7-release-unsigned.apk文件所在目录制作替身</li>
+<li><code>ls android-apk</code> – 查看android-apk软链接对应的目录</li>
+<li><code>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -tsa https://timestamp.geotrust.com/tsa -keystore release-key.keystore android-apk/android-armv7-release-unsigned.apk alias_name</code> – 给apk文件添加签名</li>
+<li><code>jarsigner -verify -verbose -certs android-apk/android-armv7-release-unsigned.apk</code> – 校验apk文件，可不执行</li>
+<li><code>ln -s android-sdkild-tools/24.0.0(zipalign所在目录) build-tools-24(软链接替身名)</code> – 给zipalign工具制作替身</li>
+<li><p><code>build-tools-24/zipalign -v 4 android-apk/android-armv7-release-unsigned.apk android-apk/android-armv7-release.apk(优化压缩后的文件名)</code> – 优化压缩apk文件并重命名</p>
+</li>
+<li><p><code>jarsigner -verbose -keystore release-key.keystore(数字签名文件名) -signedjar android-armv7-release.apk android-armv7-release-unsigned.apk alias_name(项目别名)</code> – 简写CLI</p>
+</li>
+</ul>
+<h4 id="用-JS-获取-url-中参数的方法（正则表达式）"><a href="#用-JS-获取-url-中参数的方法（正则表达式）" class="headerlink" title="用 JS 获取 url 中参数的方法（正则表达式）"></a>用 JS 获取 url 中参数的方法（正则表达式）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrlValue</span>(<span class="params">key</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^|&amp;)"</span> + key + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</div><div class="line">    <span class="keyword">const</span> result = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</div><div class="line">    <span class="keyword">return</span> result &amp;&amp; <span class="built_in">decodeURIComponent</span>(result[<span class="number">2</span>]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="用-JS-获取-url-中【协议-主机名-端口号】-的方法（正则表达式）"><a href="#用-JS-获取-url-中【协议-主机名-端口号】-的方法（正则表达式）" class="headerlink" title="用 JS 获取 url 中【协议://主机名:端口号】 的方法（正则表达式）"></a>用 JS 获取 url 中【协议://主机名:端口号】 的方法（正则表达式）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.replace(url.replace(<span class="regexp">/\w+:\/\/\w+(\.\w+)+(:\d+)*/</span>, <span class="string">''</span>), <span class="string">''</span>);</div></pre></td></tr></table></figure>
+<h4 id="微信页面头标题更新-（iframe添加-onload监听事件的方式）"><a href="#微信页面头标题更新-（iframe添加-onload监听事件的方式）" class="headerlink" title="微信页面头标题更新 （iframe添加 onload监听事件的方式）"></a>微信页面头标题更新 （iframe添加 onload监听事件的方式）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateWxTitle</span>(<span class="params">title</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> body = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>];</div><div class="line">    <span class="built_in">document</span>.title = title;</div><div class="line">    <span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">"iframe"</span>);</div><div class="line">    iframe.setAttribute(<span class="string">"src"</span>, <span class="string">"/favicon.ico"</span>);</div><div class="line">    iframe.style.display = <span class="string">'none'</span>;</div><div class="line">    <span class="keyword">var</span> onLoad = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">document</span>.body.removeChild(iframe);</div><div class="line">        &#125;, <span class="number">0</span>);</div><div class="line">    &#125;;</div><div class="line">    iframe.onload = onLoad(); <span class="comment">// iframe.addEventListener('load', onLoad, false)在有些android手机上无效</span></div><div class="line">    <span class="built_in">document</span>.body.appendChild(iframe);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="生成随机字符串（可设置字符串长度范围或固定长度）"><a href="#生成随机字符串（可设置字符串长度范围或固定长度）" class="headerlink" title="生成随机字符串（可设置字符串长度范围或固定长度）"></a>生成随机字符串（可设置字符串长度范围或固定长度）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateString</span>(<span class="params">randomLengthFlag, minLength, maxLength</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> strArray = <span class="string">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span>.split(<span class="string">''</span>);</div><div class="line">  <span class="keyword">let</span> randomStrLength = minLength;</div><div class="line">  <span class="keyword">let</span> randomStr = <span class="string">''</span>;</div><div class="line">  <span class="keyword">if</span> (randomLengthFlag) &#123; <span class="comment">//true表示长度不固定</span></div><div class="line">    randomStrLength = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * (maxLength - minLength)) + minLength;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, index; i &lt; randomStrLength; i++) &#123;</div><div class="line">    index = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * (strArray.length - <span class="number">1</span>));</div><div class="line">    randomStr += strArray[index];</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> randomStr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="JS-将数字转换成大写金额"><a href="#JS-将数字转换成大写金额" class="headerlink" title="JS 将数字转换成大写金额"></a>JS 将数字转换成大写金额</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> digitUppercase =<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> fraction =[<span class="string">'角'</span>,<span class="string">'分'</span>];</div><div class="line">    <span class="keyword">var</span> digit =[</div><div class="line">        <span class="string">'零'</span>,<span class="string">'壹'</span>,<span class="string">'贰'</span>,<span class="string">'叁'</span>,<span class="string">'肆'</span>,</div><div class="line">        <span class="string">'伍'</span>,<span class="string">'陆'</span>,<span class="string">'柒'</span>,<span class="string">'捌'</span>,<span class="string">'玖'</span></div><div class="line">    ];</div><div class="line">    <span class="keyword">var</span> unit =[</div><div class="line">        [<span class="string">'元'</span>,<span class="string">'万'</span>,<span class="string">'亿'</span>],</div><div class="line">        [<span class="string">''</span>,<span class="string">'拾'</span>,<span class="string">'佰'</span>,<span class="string">'仟'</span>]</div><div class="line">    ];</div><div class="line">    <span class="keyword">var</span> head = n &lt;<span class="number">0</span>?<span class="string">'欠'</span>:<span class="string">''</span>;</div><div class="line">    n =<span class="built_in">Math</span>.abs(n);</div><div class="line">    <span class="keyword">var</span> s =<span class="string">''</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i &lt; fraction.length; i++)&#123;</div><div class="line">        s +=(digit[<span class="built_in">Math</span>.floor(n *<span class="number">10</span>*<span class="built_in">Math</span>.pow(<span class="number">10</span>, i))%<span class="number">10</span>]+ fraction[i]).replace(<span class="regexp">/零./</span>,<span class="string">''</span>);</div><div class="line">    &#125;</div><div class="line">    s = s ||<span class="string">'整'</span>;</div><div class="line">    n =<span class="built_in">Math</span>.floor(n);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i &lt; unit[<span class="number">0</span>].length &amp;&amp; n &gt;<span class="number">0</span>; i++)&#123;</div><div class="line">        <span class="keyword">var</span> p =<span class="string">''</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j =<span class="number">0</span>; j &lt; unit[<span class="number">1</span>].length &amp;&amp; n &gt;<span class="number">0</span>; j++)&#123;</div><div class="line">            p = digit[n %<span class="number">10</span>]+ unit[<span class="number">1</span>][j]+ p;</div><div class="line">            n =<span class="built_in">Math</span>.floor(n /<span class="number">10</span>);</div><div class="line">        &#125;</div><div class="line">        s = p.replace(<span class="regexp">/(零.)*零$/</span>,<span class="string">''</span>).replace(<span class="regexp">/^$/</span>,<span class="string">'零'</span>)+ unit[<span class="number">0</span>][i]+ s;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> head + s.replace(<span class="regexp">/(零.)*零元/</span>,<span class="string">'元'</span>)</div><div class="line">        .replace(<span class="regexp">/(零.)+/g</span>,<span class="string">'零'</span>)</div><div class="line">        .replace(<span class="regexp">/^整$/</span>,<span class="string">'零元整'</span>);</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(digitUppercase(<span class="number">7682.01</span>)); <span class="comment">//柒仟陆佰捌拾贰元壹分</span></div><div class="line"><span class="built_in">console</span>.log(digitUppercase(<span class="number">7682</span>)); <span class="comment">//柒仟陆佰捌拾贰元整</span></div><div class="line"><span class="built_in">console</span>.log(digitUppercase(<span class="number">951434677682.00</span>)); <span class="comment">//玖仟伍佰壹拾肆亿叁仟肆佰陆拾柒万柒仟陆佰捌拾贰元整</span></div></pre></td></tr></table></figure>
+<h4 id="校验价格输入的正则表达式（vue）"><a href="#校验价格输入的正则表达式（vue）" class="headerlink" title="校验价格输入的正则表达式（vue）"></a>校验价格输入的正则表达式（vue）</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">placeholder</span>=<span class="string">"¥"</span> <span class="attr">:value</span>=<span class="string">"price"</span> @<span class="attr">input</span>=<span class="string">"input($event.target, price)"</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">input(element, price) &#123;</div><div class="line">    element.value = element.value.replace(<span class="regexp">/\D/g</span>, <span class="string">''</span>);</div><div class="line">    element.value = element.value == <span class="number">0</span> ? element.value &amp;&amp; <span class="number">0</span> : element.value.replace(<span class="regexp">/^0+/g</span>, <span class="string">''</span>);</div><div class="line">    price = element.value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="单行评级组件"><a href="#单行评级组件" class="headerlink" title="单行评级组件"></a>单行评级组件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"★★★★★☆☆☆☆☆"</span>.slice(<span class="number">5</span> - rate, <span class="number">10</span> - rate);</div></pre></td></tr></table></figure>
+<h4 id="数字金额化"><a href="#数字金额化" class="headerlink" title="数字金额化"></a>数字金额化</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> format = test.replace(<span class="regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="string">','</span>);</div></pre></td></tr></table></figure>
+<h4 id="防抖函数"><a href="#防抖函数" class="headerlink" title="防抖函数"></a>防抖函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay, context</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> timeoutId = <span class="literal">null</span>;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    clearTimeout(timeoutId);</div><div class="line"></div><div class="line">    <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</div><div class="line">    timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      fn.apply(context, args);</div><div class="line">    &#125;, delay);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/其他/" rel="tag"># 其他</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/11/git-cmd/" rel="next" title="Git命令">
+                <i class="fa fa-chevron-left"></i> Git命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/11/css-study/" rel="prev" title="CSS学习记录">
+                CSS学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="凌子亦" />
+          <p class="site-author-name" itemprop="name">凌子亦</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端小蜗牛🐌</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-开发环境搭建"><span class="nav-number">1.</span> <span class="nav-text">Mac 开发环境搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-Cordova-Ionic-打-android-–release-包"><span class="nav-number">2.</span> <span class="nav-text">Mac Cordova/Ionic 打 android –release 包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-JS-获取-url-中参数的方法（正则表达式）"><span class="nav-number">3.</span> <span class="nav-text">用 JS 获取 url 中参数的方法（正则表达式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-JS-获取-url-中【协议-主机名-端口号】-的方法（正则表达式）"><span class="nav-number">4.</span> <span class="nav-text">用 JS 获取 url 中【协议://主机名:端口号】 的方法（正则表达式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微信页面头标题更新-（iframe添加-onload监听事件的方式）"><span class="nav-number">5.</span> <span class="nav-text">微信页面头标题更新 （iframe添加 onload监听事件的方式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成随机字符串（可设置字符串长度范围或固定长度）"><span class="nav-number">6.</span> <span class="nav-text">生成随机字符串（可设置字符串长度范围或固定长度）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS-将数字转换成大写金额"><span class="nav-number">7.</span> <span class="nav-text">JS 将数字转换成大写金额</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#校验价格输入的正则表达式（vue）"><span class="nav-number">8.</span> <span class="nav-text">校验价格输入的正则表达式（vue）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单行评级组件"><span class="nav-number">9.</span> <span class="nav-text">单行评级组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数字金额化"><span class="nav-number">10.</span> <span class="nav-text">数字金额化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#防抖函数"><span class="nav-number">11.</span> <span class="nav-text">防抖函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">凌子亦</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

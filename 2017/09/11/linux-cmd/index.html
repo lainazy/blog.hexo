@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -93,16 +93,18 @@
 
 
 
-<meta name="description" content="前端小蜗牛🐌">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人笔记">
-<meta property="og:url" content="http://lainazy.com/index.html">
+<meta name="description" content="文件管理1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950cat：命令用于连接文件并打印到标准输出设备上。chattr：命令用于改变文件属性。--macos中不存在lsattr：命令用于显示文件属性。--macos中不存在chgrp：命令用于变更文件或目录的所属群组。">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令学习记录">
+<meta property="og:url" content="http://lainazy.com/2017/09/11/linux-cmd/index.html">
 <meta property="og:site_name" content="个人笔记">
-<meta property="og:description" content="前端小蜗牛🐌">
+<meta property="og:description" content="文件管理1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950cat：命令用于连接文件并打印到标准输出设备上。chattr：命令用于改变文件属性。--macos中不存在lsattr：命令用于显示文件属性。--macos中不存在chgrp：命令用于变更文件或目录的所属群组。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-11T10:11:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人笔记">
-<meta name="twitter:description" content="前端小蜗牛🐌">
+<meta name="twitter:title" content="Linux命令学习记录">
+<meta name="twitter:description" content="文件管理1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950cat：命令用于连接文件并打印到标准输出设备上。chattr：命令用于改变文件属性。--macos中不存在lsattr：命令用于显示文件属性。--macos中不存在chgrp：命令用于变更文件或目录的所属群组。">
 
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://lainazy.com/"/>
+  <link rel="canonical" href="http://lainazy.com/2017/09/11/linux-cmd/"/>
 
 
 
 
 
-  <title>个人笔记</title>
+  <title>Linux命令学习记录 | 个人笔记</title>
   
 
 
@@ -171,9 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,795 +290,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/09/11/browser-study/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌子亦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/browser-study/" itemprop="url">浏览器学习记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T19:02:13+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="浏览器多线程"><a href="#浏览器多线程" class="headerlink" title="浏览器多线程"></a>浏览器多线程</h4><ul>
-<li><strong><em>Javascript引擎线程</em></strong> (单线程运行且与GUI渲染线程互斥，脚本执行会阻塞Http请求线程(即阻塞资源的下载)和网上所说的有点冲突)</li>
-<li><strong><em>GUI渲染线程</em></strong> (与Javascript引擎线程互斥，渲染树的构建会等待css解析完成)</li>
-<li><strong><em>事件触发线程</em></strong></li>
-<li><strong><em>定时触发器线程</em></strong> (setTimeout)</li>
-<li><strong><em>Http请求线程</em></strong> (同一个主机有最大并行连接数限制)<ul>
-<li>css资源下载和解析时会阻塞GUI渲染线程(阻塞渲染树(rendering tree)渲染，不阻塞DOM解析)</li>
-<li>js资源下载和执行时会阻塞GUI渲染线程(阻塞DOM解析和渲染树(rendering tree)渲染)</li>
-<li>有些浏览器(safari、chrome、firefox等)在css资源下载和解析时会延迟其之后的js代码的执行(不阻塞js资源下载)</li>
-</ul>
-</li>
-</ul>
-<p><strong><em>个人理解：资源的下载应该分为同步下载(阻塞GUI渲染线程)和异步下载(不阻塞GUI渲染线程)，默认情况下所有资源都为同步下载，script标签加defer后为异步下载</em></strong></p>
-<h4 id="Event-loops"><a href="#Event-loops" class="headerlink" title="Event loops"></a>Event loops</h4><ul>
-<li>浏览器必须使用事件循环(event loops)协调异步(事件、接口、脚本、渲染、网络等)。</li>
-<li>事件循环有对应 browsing contexts 和 workers 的两种类型。</li>
-<li>一个事件循环(event loop)有一个或多个任务队列(task queue)。</li>
-<li>任务(task)通常有4种任务源(task source)：<ul>
-<li>DOM操作任务源(DOM manipulation task source)</li>
-<li>用户交互任务源(user interaction task source)</li>
-<li>网络请求任务源(networking task source)</li>
-<li>浏览器历史任务源(history traversal task source)</li>
-</ul>
-</li>
-<li>来自同一个task source的所有任务必须放入同一个task queue，即一种task source对应一个task queue。同一个task queue是按先进先出顺序执行的。</li>
-<li>浏览器可以根据task queue中task source的不同，给予task queue不同的优先级。由浏览器决定挑哪一个task queue中的队首task执行。</li>
-<li>任务(task)分为两类：<ul>
-<li>宏任务(macro-task)：script(js codes as a whole in script tag), setTimeout|setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering.</li>
-<li>微任务(micro-task)：process.nextTick, Promise(callback function in then), Object.observe, MutationObserver. – nextTick queue &gt; Promise queue</li>
-</ul>
-</li>
-<li>js引擎会把task push到对应的macrotask queue(即task queue)或microtask queue中。</li>
-<li>在event loop的一个回合中，会先从macrotask queue中取出队首的task进行执行；<br>执行完毕后，再依次执行microtask queue中的所有任务；<br>如果在执行过程中添加了新的microtask，则会在当前的回合中继续执行，直到全部mircotask执行完毕才进入下一个event loop回合。</li>
-<li>事件循环执行流程如下：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">An event loop must continually run through the following steps <span class="keyword">for</span> as long as it exists:</div><div class="line">     1. select the oldest task(task A) <span class="keyword">in</span> task queues.If task A is null(means task queues is empty),jump to step 5(microtasks steps)</div><div class="line">     2. <span class="built_in">set</span> <span class="string">"currently running task"</span> to <span class="string">"task A"</span></div><div class="line">     3. run <span class="string">"task A"</span>(means run the callback <span class="keyword">function</span>)</div><div class="line">     4. <span class="built_in">set</span> <span class="string">"currently running task"</span> back to null,and remove <span class="string">"task A"</span> from its task queue</div><div class="line">     5. perform microtask queue</div><div class="line">        (a). select the oldest task(task x) <span class="keyword">in</span> microtask queue</div><div class="line">        (b). <span class="keyword">if</span> task x is null(means microtask queues is empty),jump to step (g)</div><div class="line">        (c). <span class="built_in">set</span> <span class="string">"currently running task"</span> to <span class="string">"task x"</span></div><div class="line">        (d). run <span class="string">"task x"</span></div><div class="line">        (e). <span class="built_in">set</span> <span class="string">"currently running task"</span> to null,remove <span class="string">"task x"</span> from the microtask queue</div><div class="line">        (f). select next oldest task <span class="keyword">in</span> microtask queue,jump to step(b)</div><div class="line">        (g). finish microtask queue</div><div class="line">     6. update rendering (应该是在GUI渲染线程中执行渲染队列(Render queue)中的所有UI render任务)</div><div class="line">     7. next routnd:jump to step 1</div></pre></td></tr></table></figure>
-<ul>
-<li>渲染队列(Render queue)：浏览器在1s中渲染页面60次，每16ms就会往Render queue中添加一个UI render任务。但是浏览器只有在调用栈(Call stack)为空时才有机会执行该任务。</li>
-<li>microtask任务执行时间过长会导致UI渲染的阻塞和macrotask任务的阻塞(应该是下一个事件循环回合的macrotask)。</li>
-<li>nodejs的process.nextTick限制1000个tick任务，以使macrotask得以执行。</li>
-</ul>
-<p><strong><em>总结：1 round event loop = 1 macrotask + n microtask + rendering</em></strong></p>
-<p>相关链接：</p>
-<blockquote>
-<p><a href="http://www.cnblogs.com/kevin2chen/p/6415630.html" target="_blank" rel="external">浏览器组成、线程及event loop</a><br><a href="http://www.jianshu.com/p/12b9f73c5a4f" target="_blank" rel="external">详解事件循环机制</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/09/11/js-study/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌子亦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/js-study/" itemprop="url">Javascript学习记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T18:42:19+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="作用域、执行上下文、作用域链、闭包"><a href="#作用域、执行上下文、作用域链、闭包" class="headerlink" title="作用域、执行上下文、作用域链、闭包"></a>作用域、执行上下文、作用域链、闭包</h4><ul>
-<li>作用域(静态)：标识符(变量名和函数名)的作用范围在代码编译阶段通过词法分析就已经确定</li>
-<li>执行上下文：<ul>
-<li>创建阶段：生成变量对象(arguments，函数声明，变量声明)、维护作用域链(执行上下文作用域链)、确定this</li>
-<li>执行阶段：变量对象转换为活动对象、执行可执行代码</li>
-</ul>
-</li>
-<li>作用域链：<ul>
-<li>函数作用域链：函数创建时保存在函数对象内部属性[[Scopes]]中，由不包含函数自身作用域对象的所有上级作用域对象形成的集合</li>
-<li>执行上下文作用域链：函数执行时，创建自身作用域对象(活动对象)，并将其加入到函数作用域链顶端形成的集合</li>
-</ul>
-</li>
-<li>变量对象与活动对象的关系：this + 变量对象(创建阶段) = 活动对象(执行阶段)</li>
-<li>闭包与变量对象的关系：闭包的本质就是变量对象</li>
-<li>作用域与变量对象的关系：变量对象就是函数执行时生成的函数作用域对象</li>
-<li>作用域链与变量对象的关系：作用域链就是由变量对象(闭包、全局作用域对象)构成的单向链表，实际上是一个指向变量对象的指针列表</li>
-<li>作用域链与原型链的关系：<ul>
-<li>作用域链：针对函数中的变量及函数</li>
-<li>原型链：针对对象中的成员变量</li>
-</ul>
-</li>
-</ul>
-<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><ul>
-<li>如果函数被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。<br>– obj.fn() =&gt; fn()中的this指向obj(调用者对象)</li>
-<li>如果函数存在一个数组中，那么通过数组索引调用该函数时，函数内部的this指向该数组。<br>– arr: [fn(){}], arr<a href="">0</a> =&gt; fn()中的this指向arr(调用者对象)，可以把arr<a href="">0</a>看成arr.fn()</li>
-<li>如果函数独立调用，那么该函数内部的this，则指向undefined。<br>– fn() =&gt; fn()中的this指向undefined(没有调用者对象)</li>
-<li>但是在非严格模式中，当this指向undefined时，它会被自动指向全局对象。<br>– fn() =&gt; fn()中的this指向window</li>
-<li>使用call/apply方法显示指定调用者对象。<br>– fn.call(obj) =&gt; fn()中的this指向obj(调用者对象)，本质上其实应该是通过call()中的this指向fn函数对象实现的</li>
-</ul>
-<p><strong>结论：函数调用时，内部的this永远指向调用者对象。</strong><br><em>this的含义不是作用域，不指向作用域对象(变量对象)</em></p>
-<h4 id="prototype、-proto"><a href="#prototype、-proto" class="headerlink" title="prototype、__proto__"></a>prototype、__proto__</h4><ul>
-<li>所有对象(对象、数组、函数等)都具有内置属性__proto__，__proto__指向该对象的构造函数的原型(prototype)对象，原型链就是通过__proto__确定</li>
-<li>函数才具有prototype属性，prototype指向函数的原型对象，普通对象和数组没有prototype属性</li>
-<li>函数的原型(prototype)对象上才有constructor属性，constructor指向函数自身，普通对象和数组没有constructor属性</li>
-<li>对象获取某个属性时，先在对象自身范围内查找，自身范围内没有找到该属性时，再通过__proto__属性一级一级地向上在其构造函数的原型(prototype)对象上查找</li>
-</ul>
-<h4 id="，new-Object-，Object-create-null-及-new-func-，Object-create-func-prototype-的区别"><a href="#，new-Object-，Object-create-null-及-new-func-，Object-create-func-prototype-的区别" class="headerlink" title="{}，new Object()，Object.create(null) 及 new func()，Object.create(func.prototype) 的区别"></a>{}，new Object()，Object.create(null) 及 new func()，Object.create(func.prototype) 的区别</h4><ul>
-<li><code>var a = {};</code> – {}创建方式的速度比new Object()快，因为new方式要做额外的处理</li>
-<li><code>var b = new Object();</code> – a == b // false，a和b是两个对象，但其内部是一样的，b.constructor === b.__proto__.constructor === Object // true</li>
-<li><code>var c = Object.create(null);</code> – 创建的对象中没有任何属性，__proto__属性也没有</li>
-<li><code>var d = new Object(a);</code> – a === d // true，new Object() 如果传入的参数是对象，返回的就是它自身，如果传入的参数是数字或字符串，返回的是Number或String对象(与传入参数==而不===)</li>
-<li><p><code>var e = Object.create(a);</code> – e.__proto__ === a // true，Object.create(prototype[, descriptors]) 函数用来创建一个具有指定原型且可选择性地包含指定属性的对象</p>
-<pre><code>var func = function (name, option) {
-    this.name = name;
-    this.option = option;
-};
-var obj = new func(&apos;abc&apos;, {x:1, y:2});
-</code></pre></li>
-<li><p>– 实际的创建过程：先创建一个空对象，将其__proto__属性指向函数的原型，将this指向这个空对象并运行这个函数<br>– 实际的创建过程代码：var obj = new Object(); obj.__proto__ = func.prototype; func.apply(obj, [‘abc’, {x:1, y:2}]);<br>– obj对象自身中含有name和option属性</p>
-<pre><code>func.prototype.name = &apos;abc&apos;;
-func.prototype.option = {x:1, y:2};
-var obj = Object.create(func.prototype);
-</code></pre></li>
-<li><p>– obj对象自身中不含name和option属性，但可以通过访问其原型获取到name和option的值<br>– 修改属性时会在自身添加该属性，如修改name会在obj中添加name字段，不会修改原型中的name属性<br>– 修改对象的属性时，会先在原型链中查询是否存在该对象，若存在则修改原型链中已经存在的该对象的属性，若原型链中不存在该对象，则报错</p>
-</li>
-</ul>
-<h4 id="ES6-Promise-vs-JQuery-Promise"><a href="#ES6-Promise-vs-JQuery-Promise" class="headerlink" title="ES6 Promise vs JQuery Promise"></a>ES6 Promise vs JQuery Promise</h4><ul>
-<li>ES6中引入了一个microtask(job) queue概念，ES6 Promise通过microtask queue实现，resolve()执行时依次将then()中的回调函数加入microtask queue</li>
-<li>JQuery Promise的then()中回调函数的执行并不保证是异步的，resolve()/reject()的执行方式(sync/async)决定了then()中回调函数的执行方式</li>
-<li>JQuery Promise的实现原理：<ul>
-<li>JQuery内部会维护一个用来存放then()中回调函数的数组</li>
-<li>return deferred.promise()执行会返回一个Promise对象，然后会同步依次执行Promise对象的then()将其中的回调函数依次放入数组，并尝试执行数组中的回调函数</li>
-<li>resolve()执行时会修改Promise对象的状态(pending -&gt; resolved/fulfilled)，并尝试执行数组中的回调函数</li>
-<li>执行数组中的回调函数：遍历数组并根据Promise对象的状态(pending/resolved/fulfilled/rejected)做相应的执行</li>
-</ul>
-</li>
-</ul>
-<p>相关链接：</p>
-<blockquote>
-<p><a href="https://segmentfault.com/q/1010000008612124" target="_blank" rel="external">ES6 Promise和JQuery中Promise的区别</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/09/11/css-study/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌子亦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/css-study/" itemprop="url">CSS学习记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T18:41:53+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="过度受限计算规则"><a href="#过度受限计算规则" class="headerlink" title="过度受限计算规则"></a>过度受限计算规则</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    position: absolute; </div><div class="line">    top: 0; //值为任意数值或百分数</div><div class="line">    bottom: 0; //值为任意数值或百分数</div><div class="line">    height: 100%; //值为任意数值或百分数</div><div class="line">    margin: auto; //值必须为auto才能触发margin重计算</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>以上Css属性组合使用时(过度受限)有如下结果：<ul>
-<li>margin-top = margin-bottom; </li>
-<li>margin-top/margin-bottom值计算公式: (包含块height - height - top - bottom) / 2;</li>
-<li>距离顶边界偏移量计算公式: (包含块height - height + top - bottom) / 2;</li>
-</ul>
-</li>
-</ul>
-<h4 id="display-amp-position-amp-float-彼此的交互作用规则"><a href="#display-amp-position-amp-float-彼此的交互作用规则" class="headerlink" title="display &amp; position &amp; float 彼此的交互作用规则"></a>display &amp; position &amp; float 彼此的交互作用规则</h4><ul>
-<li>如果display的值为none，position和float无效。此时不生成box。</li>
-<li>如果position的值不为static或relative，box被绝对定位，float的计算值为none，display的计算值设定规则如下：<ul>
-<li>当display: inline-table时，display的计算值为table；</li>
-<li>当display: inline | inline-block | run-in | table-* 系时，display的计算值为block；</li>
-<li>当display: inline-flex时，display的计算值为flex；</li>
-<li>其它情况为指定值；</li>
-</ul>
-</li>
-<li>如果float的值不是none，box是浮动的，display的计算值设定规则如上。</li>
-<li>如果元素为根元素，display的计算值设定规则如上。</li>
-<li>其余情况下display的值就是其指定值。</li>
-</ul>
-<p><strong><em>总结：绝对定位元素、浮动元素和根元素的display属性会被块级化。</em></strong></p>
-<h4 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h4><ul>
-<li>盒子模型由外到内结构：position-box &gt; margin-box &gt; border-box &gt; scroll-box[scrollbar(右+下) + client-box(即padding-box)] &gt; padding-box &gt; content-box</li>
-<li>盒模型 width/height 使用值计算公式如下：<ul>
-<li>box-sizing: border-box时：<ul>
-<li>style.width =  borderBoxWidth</li>
-<li>style.height = borderBoxHeight</li>
-</ul>
-</li>
-<li>box-sizing: content-box时：<ul>
-<li>style.width =  contentBoxWidth + scrollbarWidth</li>
-<li>style.height = contentBoxHeight + scrollbarHeight</li>
-</ul>
-</li>
-<li>offsetWidth = borderBoxWidth = clientWidth + scrollbarWidth + style.borderLeft + style.borderRight</li>
-<li>offsetHeight = borderBoxHeight = clientHeight + scrollbarHeight + style.borderTop + style.borderBottom</li>
-<li>clientWidth = paddingBoxWidth = contentBoxWidth + style.paddingLeft + style.paddingRight</li>
-<li>clientHeight = paddingBoxHeight = contentBoxHeight + style.paddingTop + style.paddingBottom</li>
-</ul>
-</li>
-</ul>
-<h4 id="置换元素"><a href="#置换元素" class="headerlink" title="置换元素"></a>置换元素</h4><ul>
-<li>置换元素本质上只是一个占位符，是一个inline元素，和普通inline元素的区别在于其置换后的内容有默认宽高，设置width/heigth时，设置的是其置换后内容的width/height。</li>
-<li>个人推测：inline置换元素会自动将display: inline转换成display: inline-block显示，所以拥有和inline-block元素类似的显示特点。</li>
-<li>推测依据：<ul>
-<li><code>&lt;img&gt;</code> <code>&lt;textarea&gt;</code> 元素设置成display: inline，仍可以设置width/height，并且margin不会折叠，说明有生成新的BFC，和inline-block元素特点一致。</li>
-<li><code>&lt;img&gt;</code> <code>&lt;textarea&gt;</code> 元素设置成display: block，margin会发生折叠，说明block置换元素不会生成新的BFC，失去了inline-block元素的特点。</li>
-</ul>
-</li>
-<li>所以个人推测：行内置换元素的特点是通过display: inline-block来实现的。</li>
-<li>另一种可能：置换元素本质上只是一个占位符，所以本质就是一个inline元素，所以只有设置为display: inline时才有其特点。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/09/11/learn-by-self/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌子亦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/learn-by-self/" itemprop="url">杂记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T18:34:44+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Mac-开发环境搭建"><a href="#Mac-开发环境搭建" class="headerlink" title="Mac 开发环境搭建"></a>Mac 开发环境搭建</h4><ul>
-<li><code>homebrew安装</code> – 执行 <code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
-<li><code>node安装</code> – 通过nvm安装，nvm使用homebrew安装</li>
-<li><code>jdk安装</code> – 执行java -version，若电脑本来没有安装jdk会自动提示进入官网下载jdk安装</li>
-<li><code>android sdk安装</code> – 可以使用brew install android-sdk安装（注意需要翻墙）</li>
-<li><code>Xcode命令行工具安装</code> – 执行xcode-select –install（网上说其中包含git，但我没找到）</li>
-<li><code>git安装</code> – 执行brew install git</li>
-<li><code>svn安装</code> – 在xclient.info网站下载cornerstone工具安装，显然任何来源选项并直接选择：sudo spctl –master-disable</li>
-<li><code>cordova安装</code> – 执行sudo npm install -g cordova（npm所有的安装最好都翻墙）</li>
-<li><code>ionic安装</code> – 执行sudo npm install -g ionic</li>
-<li><code>gulp安装</code> – 执行sudo npm install -g gulp</li>
-<li><code>webpack安装</code> – 执行sudo npm install -g webpack</li>
-<li><code>vue-cli安装</code> – 执行sudo npm install -g vue-cli</li>
-</ul>
-<h4 id="Mac-Cordova-Ionic-打-android-–release-包"><a href="#Mac-Cordova-Ionic-打-android-–release-包" class="headerlink" title="Mac Cordova/Ionic 打 android –release 包"></a>Mac Cordova/Ionic 打 android –release 包</h4><ul>
-<li><code>ionic build android --release</code> – 生成android-armv7-release-unsigned.apk文件</li>
-<li><code>keytool -genkey -v -keystore release-key.keystore(数字签名文件名) -alias alias_name(项目别名) -keyalg RSA -keysize 2048 -validity 10000</code> – 生成数字签名文件</li>
-<li><code>ln -s platforms/androidild/outputs/apk android-apk(软链接替身名)</code> – 给android-armv7-release-unsigned.apk文件所在目录制作替身</li>
-<li><code>ls android-apk</code> – 查看android-apk软链接对应的目录</li>
-<li><code>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -tsa https://timestamp.geotrust.com/tsa -keystore release-key.keystore android-apk/android-armv7-release-unsigned.apk alias_name</code> – 给apk文件添加签名</li>
-<li><code>jarsigner -verify -verbose -certs android-apk/android-armv7-release-unsigned.apk</code> – 校验apk文件，可不执行</li>
-<li><code>ln -s android-sdkild-tools/24.0.0(zipalign所在目录) build-tools-24(软链接替身名)</code> – 给zipalign工具制作替身</li>
-<li><p><code>build-tools-24/zipalign -v 4 android-apk/android-armv7-release-unsigned.apk android-apk/android-armv7-release.apk(优化压缩后的文件名)</code> – 优化压缩apk文件并重命名</p>
-</li>
-<li><p><code>jarsigner -verbose -keystore release-key.keystore(数字签名文件名) -signedjar android-armv7-release.apk android-armv7-release-unsigned.apk alias_name(项目别名)</code> – 简写CLI</p>
-</li>
-</ul>
-<h4 id="用-JS-获取-url-中参数的方法（正则表达式）"><a href="#用-JS-获取-url-中参数的方法（正则表达式）" class="headerlink" title="用 JS 获取 url 中参数的方法（正则表达式）"></a>用 JS 获取 url 中参数的方法（正则表达式）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrlValue</span>(<span class="params">key</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^|&amp;)"</span> + key + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</div><div class="line">    <span class="keyword">const</span> result = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</div><div class="line">    <span class="keyword">return</span> result &amp;&amp; <span class="built_in">decodeURIComponent</span>(result[<span class="number">2</span>]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="用-JS-获取-url-中【协议-主机名-端口号】-的方法（正则表达式）"><a href="#用-JS-获取-url-中【协议-主机名-端口号】-的方法（正则表达式）" class="headerlink" title="用 JS 获取 url 中【协议://主机名:端口号】 的方法（正则表达式）"></a>用 JS 获取 url 中【协议://主机名:端口号】 的方法（正则表达式）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url.replace(url.replace(<span class="regexp">/\w+:\/\/\w+(\.\w+)+(:\d+)*/</span>, <span class="string">''</span>), <span class="string">''</span>);</div></pre></td></tr></table></figure>
-<h4 id="微信页面头标题更新-（iframe添加-onload监听事件的方式）"><a href="#微信页面头标题更新-（iframe添加-onload监听事件的方式）" class="headerlink" title="微信页面头标题更新 （iframe添加 onload监听事件的方式）"></a>微信页面头标题更新 （iframe添加 onload监听事件的方式）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateWxTitle</span>(<span class="params">title</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> body = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>];</div><div class="line">    <span class="built_in">document</span>.title = title;</div><div class="line">    <span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">"iframe"</span>);</div><div class="line">    iframe.setAttribute(<span class="string">"src"</span>, <span class="string">"/favicon.ico"</span>);</div><div class="line">    iframe.style.display = <span class="string">'none'</span>;</div><div class="line">    <span class="keyword">var</span> onLoad = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">document</span>.body.removeChild(iframe);</div><div class="line">        &#125;, <span class="number">0</span>);</div><div class="line">    &#125;;</div><div class="line">    iframe.onload = onLoad(); <span class="comment">// iframe.addEventListener('load', onLoad, false)在有些android手机上无效</span></div><div class="line">    <span class="built_in">document</span>.body.appendChild(iframe);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="生成随机字符串（可设置字符串长度范围或固定长度）"><a href="#生成随机字符串（可设置字符串长度范围或固定长度）" class="headerlink" title="生成随机字符串（可设置字符串长度范围或固定长度）"></a>生成随机字符串（可设置字符串长度范围或固定长度）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateString</span>(<span class="params">randomLengthFlag, minLength, maxLength</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> strArray = <span class="string">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span>.split(<span class="string">''</span>);</div><div class="line">  <span class="keyword">let</span> randomStrLength = minLength;</div><div class="line">  <span class="keyword">let</span> randomStr = <span class="string">''</span>;</div><div class="line">  <span class="keyword">if</span> (randomLengthFlag) &#123; <span class="comment">//true表示长度不固定</span></div><div class="line">    randomStrLength = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * (maxLength - minLength)) + minLength;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, index; i &lt; randomStrLength; i++) &#123;</div><div class="line">    index = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * (strArray.length - <span class="number">1</span>));</div><div class="line">    randomStr += strArray[index];</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> randomStr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="JS-将数字转换成大写金额"><a href="#JS-将数字转换成大写金额" class="headerlink" title="JS 将数字转换成大写金额"></a>JS 将数字转换成大写金额</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> digitUppercase =<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> fraction =[<span class="string">'角'</span>,<span class="string">'分'</span>];</div><div class="line">    <span class="keyword">var</span> digit =[</div><div class="line">        <span class="string">'零'</span>,<span class="string">'壹'</span>,<span class="string">'贰'</span>,<span class="string">'叁'</span>,<span class="string">'肆'</span>,</div><div class="line">        <span class="string">'伍'</span>,<span class="string">'陆'</span>,<span class="string">'柒'</span>,<span class="string">'捌'</span>,<span class="string">'玖'</span></div><div class="line">    ];</div><div class="line">    <span class="keyword">var</span> unit =[</div><div class="line">        [<span class="string">'元'</span>,<span class="string">'万'</span>,<span class="string">'亿'</span>],</div><div class="line">        [<span class="string">''</span>,<span class="string">'拾'</span>,<span class="string">'佰'</span>,<span class="string">'仟'</span>]</div><div class="line">    ];</div><div class="line">    <span class="keyword">var</span> head = n &lt;<span class="number">0</span>?<span class="string">'欠'</span>:<span class="string">''</span>;</div><div class="line">    n =<span class="built_in">Math</span>.abs(n);</div><div class="line">    <span class="keyword">var</span> s =<span class="string">''</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i &lt; fraction.length; i++)&#123;</div><div class="line">        s +=(digit[<span class="built_in">Math</span>.floor(n *<span class="number">10</span>*<span class="built_in">Math</span>.pow(<span class="number">10</span>, i))%<span class="number">10</span>]+ fraction[i]).replace(<span class="regexp">/零./</span>,<span class="string">''</span>);</div><div class="line">    &#125;</div><div class="line">    s = s ||<span class="string">'整'</span>;</div><div class="line">    n =<span class="built_in">Math</span>.floor(n);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i &lt; unit[<span class="number">0</span>].length &amp;&amp; n &gt;<span class="number">0</span>; i++)&#123;</div><div class="line">        <span class="keyword">var</span> p =<span class="string">''</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j =<span class="number">0</span>; j &lt; unit[<span class="number">1</span>].length &amp;&amp; n &gt;<span class="number">0</span>; j++)&#123;</div><div class="line">            p = digit[n %<span class="number">10</span>]+ unit[<span class="number">1</span>][j]+ p;</div><div class="line">            n =<span class="built_in">Math</span>.floor(n /<span class="number">10</span>);</div><div class="line">        &#125;</div><div class="line">        s = p.replace(<span class="regexp">/(零.)*零$/</span>,<span class="string">''</span>).replace(<span class="regexp">/^$/</span>,<span class="string">'零'</span>)+ unit[<span class="number">0</span>][i]+ s;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> head + s.replace(<span class="regexp">/(零.)*零元/</span>,<span class="string">'元'</span>)</div><div class="line">        .replace(<span class="regexp">/(零.)+/g</span>,<span class="string">'零'</span>)</div><div class="line">        .replace(<span class="regexp">/^整$/</span>,<span class="string">'零元整'</span>);</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(digitUppercase(<span class="number">7682.01</span>)); <span class="comment">//柒仟陆佰捌拾贰元壹分</span></div><div class="line"><span class="built_in">console</span>.log(digitUppercase(<span class="number">7682</span>)); <span class="comment">//柒仟陆佰捌拾贰元整</span></div><div class="line"><span class="built_in">console</span>.log(digitUppercase(<span class="number">951434677682.00</span>)); <span class="comment">//玖仟伍佰壹拾肆亿叁仟肆佰陆拾柒万柒仟陆佰捌拾贰元整</span></div></pre></td></tr></table></figure>
-<h4 id="校验价格输入的正则表达式（vue）"><a href="#校验价格输入的正则表达式（vue）" class="headerlink" title="校验价格输入的正则表达式（vue）"></a>校验价格输入的正则表达式（vue）</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">placeholder</span>=<span class="string">"¥"</span> <span class="attr">:value</span>=<span class="string">"price"</span> @<span class="attr">input</span>=<span class="string">"input($event.target, price)"</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">input(element, price) &#123;</div><div class="line">    element.value = element.value.replace(<span class="regexp">/\D/g</span>, <span class="string">''</span>);</div><div class="line">    element.value = element.value == <span class="number">0</span> ? element.value &amp;&amp; <span class="number">0</span> : element.value.replace(<span class="regexp">/^0+/g</span>, <span class="string">''</span>);</div><div class="line">    price = element.value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="单行评级组件"><a href="#单行评级组件" class="headerlink" title="单行评级组件"></a>单行评级组件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"★★★★★☆☆☆☆☆"</span>.slice(<span class="number">5</span> - rate, <span class="number">10</span> - rate);</div></pre></td></tr></table></figure>
-<h4 id="数字金额化"><a href="#数字金额化" class="headerlink" title="数字金额化"></a>数字金额化</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> format = test.replace(<span class="regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="string">','</span>);</div></pre></td></tr></table></figure>
-<h4 id="防抖函数"><a href="#防抖函数" class="headerlink" title="防抖函数"></a>防抖函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay, context</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> timeoutId = <span class="literal">null</span>;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    clearTimeout(timeoutId);</div><div class="line"></div><div class="line">    <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</div><div class="line">    timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      fn.apply(context, args);</div><div class="line">    &#125;, delay);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/09/11/git-cmd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌子亦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/git-cmd/" itemprop="url">Git命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T18:09:46+08:00">
-                2017-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Git-Cmd"><a href="#Git-Cmd" class="headerlink" title="Git Cmd"></a>Git Cmd</h4><p><img src="http://static.zybuluo.com/lainazy/0ht5u9haqg26dnclziixgrq3/git-cmd.jpeg" alt="Git命令大全"></p>
-<h4 id="Git-使用流程（当前处于个人分支）"><a href="#Git-使用流程（当前处于个人分支）" class="headerlink" title="Git 使用流程（当前处于个人分支）"></a>Git 使用流程（当前处于个人分支）</h4><ul>
-<li><code>git status</code> – 查看工作空间或暂存区与本地仓库的区别</li>
-<li><code>git add .</code> – 将工作空间中改动的文件添加到暂存区</li>
-<li><code>git commit -m &#39;注释&#39;</code> – 将暂存区中的内容提交到本地仓库</li>
-<li><code>git checkout develop</code> – 切换到本地仓库develop分支</li>
-<li><code>git pull origin develop</code> – 从远程仓库develop分支拉取最新数据到本地仓库当前(个人)分支，有冲突时解决<ul>
-<li><code>git status -&gt; git add . -&gt; git commit -m &#39;注释&#39;</code> – 有冲突时执行</li>
-</ul>
-</li>
-<li><code>git merge [--squash] &lt;个人分支名&gt;</code> – 将本地仓库中个人分支的代码合并到本地仓库develop分支，一般没有冲突，若有冲突解决，–squash选项表示合并完之后不自动commit<ul>
-<li><code>git status -&gt; git add . -&gt; git commit -m &#39;注释&#39;</code> – 有冲突时执行</li>
-</ul>
-</li>
-<li><code>git push origin develop</code> – 将本地仓库develop分支内容推送到远程仓库develop分支</li>
-<li><code>git checkout &lt;个人分支名&gt;</code> – 切换回本地仓库个人分支</li>
-<li><code>git merge develop</code> – 将本地仓库develop分支中的代码合并到本地仓库中的个人分支</li>
-</ul>
-<h4 id="git-pull-和-git-push-用法"><a href="#git-pull-和-git-push-用法" class="headerlink" title="git pull 和 git push 用法"></a>git pull 和 git push 用法</h4><ul>
-<li><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code> – 如果远程分支是与当前分支合并，则冒号后面的部分可以省略。</li>
-<li><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code> – 如果省略远程分支名，则表示将本地分支推送与之存在”追踪关系”的远程分支(通常两者同名)，如果该远程分支不存在，则会被新建。</li>
-<li><code>git push origin :master 等同于 git push origin --delete master</code> – 如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -1104,9 +318,7 @@ var obj = Object.create(func.prototype);
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/11/linux-cmd/" itemprop="url">Linux命令学习记录</a></h1>
+          <h1 class="post-title" itemprop="name headline">Linux命令学习记录</h1>
         
 
         <div class="post-meta">
@@ -1153,9 +365,7 @@ var obj = Object.create(func.prototype);
       
 
       
-        
-          
-            <h6 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">cat：命令用于连接文件并打印到标准输出设备上。</div><div class="line">chattr：命令用于改变文件属性。--macos中不存在</div><div class="line">lsattr：命令用于显示文件属性。--macos中不存在</div><div class="line">chgrp：命令用于变更文件或目录的所属群组。</div><div class="line">chmod：命令可以藉以控制文件如何被他人所调用。</div><div class="line">chown：命令将指定文件的拥有者改为指定的用户或组。</div><div class="line">cksum：命令用于检查文件的CRC是否正确。确保文件从一个系统传输到另一个系统的过程中不被损坏。</div><div class="line">cmp：命令用于比较两个文件是否有差异。</div><div class="line">diff：命令用于比较文件的差异。</div><div class="line">diffstat：命令根据diff的比较结果，显示统计数字。</div><div class="line">file：命令用于辨识文件类型。</div><div class="line">find：命令用来在指定目录下查找文件。</div><div class="line">git：命令是文字模式下的文件管理员。(貌似就是我们常用的git)</div><div class="line">gitview：命令用于观看文件的内容，它会同时显示十六进制和ASCII格式的字码。--macos中不存在</div><div class="line">indent：命令用于调整C原始代码文件的格式。</div><div class="line">cut：命令用于显示每行从开头算起 num1 到 num2 的文字。</div><div class="line">ln：命令是为某一个文件在另外一个位置建立一个同步的链接。</div><div class="line">less：命令用来浏览文件。与more类似，但使用less可以随意浏览文件，而more仅能向前移动，却不能向后移动，而且less在查看之前不会加载整个文件。</div><div class="line">locate：命令用于查找符合条件的文档。locate会去保存文档和目录名称的数据库内，查找合乎范本样式条件的文档或目录。</div><div class="line">mattrib：命令用来变更或显示MS-DOS文件的属性。--macos中不存在</div><div class="line">mc：命令用于提供一个菜单式的文件管理程序。--macos中不存在</div><div class="line">mdel：命令用来删除MS-DOS格式的档案。--macos中不存在</div><div class="line">mdir：命令用于显示MS-DOS目录。</div><div class="line">mktemp：命令用于建立暂存文件。</div><div class="line">more：命令类似cat ，不过会以一页一页的形式显示。</div><div class="line">mmove：命令用于在MS-DOS文件系统中，移动文件或目录，或更改名称。--macos中不存在</div><div class="line">mread：命令用于将MS-DOS文件复制到Linux/Unix的目录中。--macos中不存在</div><div class="line">mren：命令用于更改MS-DOS文件或目录的名称，或是移动文件或目录。--macos中不存在</div><div class="line">mtools：命令用于显示mtools支持的指令。--macos中不存在</div><div class="line">mtoolstest：命令用于测试并显示mtools的相关设置。--macos中不存在</div><div class="line">mv：命令用来为文件或目录改名、或将文件或目录移入其它位置。</div><div class="line">od：命令用于输出文件内容。指令会读取所给予的文件的内容，并将其内容以八进制字码呈现出来。</div><div class="line">paste：命令用于合并文件的列。</div><div class="line">patch：命令用于修补文件。</div><div class="line">rcp：命令用于复制远程文件或目录。--macos中不存在</div><div class="line">rm：命令用于删除一个文件或者目录。</div><div class="line">slocate：命令查找文件或目录。slocate本身具有一个数据库，里面存放了系统中文件与目录的相关信息。--macos中不存在</div><div class="line">split：命令用于将一个文件分割成数个。</div><div class="line">tee：命令用于读取标准输入的数据，并将其内容输出成文件。</div><div class="line">tmpwatch：命令用于删除暂存文件。--macos中不存在</div><div class="line">touch：命令用于修改文件或者目录的时间属性，包括存取时间和更改时间。</div><div class="line"><span class="built_in">umask</span>：命令指定在建立文件时预设的权限掩码。</div><div class="line"><span class="built_in">which</span>：命令用于查找文件。</div><div class="line">cp：命令主要用于复制文件或目录。</div><div class="line">whereis：命令用于查找文件。</div><div class="line">mcopy：命令用来复制 MS-DOS 格式文件到 Linux 中，或是由 Linux 中复制 MS-DOS 文件到磁片上。--macos中不存在</div><div class="line">mshowfat：命令用于显示MS-DOS文件在FAT中的记录。--macos中不存在</div><div class="line">rhmask：命令用于对文件进行加密和解密操作。--macos中不存在</div><div class="line">scp：命令用于Linux之间复制文件和目录。</div><div class="line">AWK：是一种处理文本文件的语言，是一个强大的文本分析工具。</div></pre></td></tr></table></figure>
+        <h6 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">cat：命令用于连接文件并打印到标准输出设备上。</div><div class="line">chattr：命令用于改变文件属性。--macos中不存在</div><div class="line">lsattr：命令用于显示文件属性。--macos中不存在</div><div class="line">chgrp：命令用于变更文件或目录的所属群组。</div><div class="line">chmod：命令可以藉以控制文件如何被他人所调用。</div><div class="line">chown：命令将指定文件的拥有者改为指定的用户或组。</div><div class="line">cksum：命令用于检查文件的CRC是否正确。确保文件从一个系统传输到另一个系统的过程中不被损坏。</div><div class="line">cmp：命令用于比较两个文件是否有差异。</div><div class="line">diff：命令用于比较文件的差异。</div><div class="line">diffstat：命令根据diff的比较结果，显示统计数字。</div><div class="line">file：命令用于辨识文件类型。</div><div class="line">find：命令用来在指定目录下查找文件。</div><div class="line">git：命令是文字模式下的文件管理员。(貌似就是我们常用的git)</div><div class="line">gitview：命令用于观看文件的内容，它会同时显示十六进制和ASCII格式的字码。--macos中不存在</div><div class="line">indent：命令用于调整C原始代码文件的格式。</div><div class="line">cut：命令用于显示每行从开头算起 num1 到 num2 的文字。</div><div class="line">ln：命令是为某一个文件在另外一个位置建立一个同步的链接。</div><div class="line">less：命令用来浏览文件。与more类似，但使用less可以随意浏览文件，而more仅能向前移动，却不能向后移动，而且less在查看之前不会加载整个文件。</div><div class="line">locate：命令用于查找符合条件的文档。locate会去保存文档和目录名称的数据库内，查找合乎范本样式条件的文档或目录。</div><div class="line">mattrib：命令用来变更或显示MS-DOS文件的属性。--macos中不存在</div><div class="line">mc：命令用于提供一个菜单式的文件管理程序。--macos中不存在</div><div class="line">mdel：命令用来删除MS-DOS格式的档案。--macos中不存在</div><div class="line">mdir：命令用于显示MS-DOS目录。</div><div class="line">mktemp：命令用于建立暂存文件。</div><div class="line">more：命令类似cat ，不过会以一页一页的形式显示。</div><div class="line">mmove：命令用于在MS-DOS文件系统中，移动文件或目录，或更改名称。--macos中不存在</div><div class="line">mread：命令用于将MS-DOS文件复制到Linux/Unix的目录中。--macos中不存在</div><div class="line">mren：命令用于更改MS-DOS文件或目录的名称，或是移动文件或目录。--macos中不存在</div><div class="line">mtools：命令用于显示mtools支持的指令。--macos中不存在</div><div class="line">mtoolstest：命令用于测试并显示mtools的相关设置。--macos中不存在</div><div class="line">mv：命令用来为文件或目录改名、或将文件或目录移入其它位置。</div><div class="line">od：命令用于输出文件内容。指令会读取所给予的文件的内容，并将其内容以八进制字码呈现出来。</div><div class="line">paste：命令用于合并文件的列。</div><div class="line">patch：命令用于修补文件。</div><div class="line">rcp：命令用于复制远程文件或目录。--macos中不存在</div><div class="line">rm：命令用于删除一个文件或者目录。</div><div class="line">slocate：命令查找文件或目录。slocate本身具有一个数据库，里面存放了系统中文件与目录的相关信息。--macos中不存在</div><div class="line">split：命令用于将一个文件分割成数个。</div><div class="line">tee：命令用于读取标准输入的数据，并将其内容输出成文件。</div><div class="line">tmpwatch：命令用于删除暂存文件。--macos中不存在</div><div class="line">touch：命令用于修改文件或者目录的时间属性，包括存取时间和更改时间。</div><div class="line"><span class="built_in">umask</span>：命令指定在建立文件时预设的权限掩码。</div><div class="line"><span class="built_in">which</span>：命令用于查找文件。</div><div class="line">cp：命令主要用于复制文件或目录。</div><div class="line">whereis：命令用于查找文件。</div><div class="line">mcopy：命令用来复制 MS-DOS 格式文件到 Linux 中，或是由 Linux 中复制 MS-DOS 文件到磁片上。--macos中不存在</div><div class="line">mshowfat：命令用于显示MS-DOS文件在FAT中的记录。--macos中不存在</div><div class="line">rhmask：命令用于对文件进行加密和解密操作。--macos中不存在</div><div class="line">scp：命令用于Linux之间复制文件和目录。</div><div class="line">AWK：是一种处理文本文件的语言，是一个强大的文本分析工具。</div></pre></td></tr></table></figure>
 <h6 id="文档编辑"><a href="#文档编辑" class="headerlink" title="文档编辑"></a>文档编辑</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">col：命令用于过滤控制字符。</div><div class="line">colrm：命令用于滤掉指定的行。</div><div class="line">comm：命令用于比较两个已排过序的文件。</div><div class="line">csplit：命令用于分割文件。</div><div class="line">ed：命令是文本编辑器，用于文本编辑。</div><div class="line">egrep：命令用于在文件内查找指定的字符串。</div><div class="line">ex：命令用于在Ex模式下启动vim文本编辑器。</div><div class="line">fgrep：命令用于查找文件里符合条件的字符串。</div><div class="line">fmt：命令用于编排文本文件。</div><div class="line">fold：命令用于限制文件列宽。</div><div class="line">grep：命令用于查找文件里符合条件的字符串。</div><div class="line">ispell：命令用于拼写检查程序。--macos中不存在</div><div class="line">jed：命令用于编辑文本文件。--macos中不存在</div><div class="line">joe：命令用于编辑文本文件。--macos中不存在</div><div class="line">join：命令用于将两个文件中，指定栏位内容相同的行连接起来。</div><div class="line">look：命令用于查询单词。</div><div class="line">mtype：命令为mtools工具指令，模拟MS-DOS的<span class="built_in">type</span>指令，可显示MS-DOS文件的内容。</div><div class="line">pico：命令用于编辑文字文件。</div><div class="line">rgrep：命令用于递归查找文件里符合条件的字符串。--macos中不存在</div><div class="line">sed：命令是利用script来处理文本文件。</div><div class="line">sort：命令用于将文本文件内容加以排序。</div><div class="line">spell：命令可建立拼写检查程序。--macos中不存在</div><div class="line">tr：命令用于转换或删除文件中的字符。</div><div class="line">expr：命令是一个手工命令行计数器。</div><div class="line">uniq：命令用于检查及删除文本文件中重复出现的行列。</div><div class="line">wc：命令用于计算字数。</div><div class="line"><span class="built_in">let</span>：命令是 BASH 中用于计算的工具，用于执行一个或多个表达式，变量计算中不需要加上 $ 来表示变量。</div></pre></td></tr></table></figure>
 <h6 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">lprm：命令用于将一个工作从打印机贮列中移除。</div><div class="line">lpr：命令用于将一个或多个文件放入打印队列等待打印。</div><div class="line">lpq：命令用于查看一个打印队列的状态，该程序可以查看打印机队列状态及其所包含的打印任务。</div><div class="line">lpd：命令是一个常驻的打印机管理程序，它会根据 /etc/printcap 的内容来管理本地或远端的打印机。--macos中不存在</div><div class="line"><span class="built_in">bye</span>：命令用于中断 FTP 连线并结束程序。</div><div class="line">ftp：命令设置文件系统相关功能。</div><div class="line">uuto：命令将文件传送到远端的UUCP主机。</div><div class="line">uupick：命令处理传送进来的文件。</div><div class="line">uucp：命令用于在Unix系统之间传送文件。</div><div class="line">uucico：命令UUCP文件传输服务程序。</div><div class="line">tftp：命令用于传输文件。</div><div class="line">ncftp：命令用于传输文件。--macos中不存在</div><div class="line">ftpshut：命令在指定的时间关闭FTP服务器。--macos中不存在</div><div class="line">ftpwho：命令用于显示目前所有以FTP登入的用户信息。--macos中不存在</div><div class="line">ftpcount：命令用于显示目前以FTP登入的用户人数。--macos中不存在</div></pre></td></tr></table></figure>
 <h6 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span>：命令用于切换当前工作目录至dirName(目录参数)。</div><div class="line">df：命令用于显示目前在Linux系统上的文件系统的磁盘使用情况统计。</div><div class="line"><span class="built_in">dirs</span>：命令用于显示目录记录。</div><div class="line">du：命令用于显示目录或文件的大小。</div><div class="line">edquota：命令用于编辑用户或群组的磁盘配额。</div><div class="line">eject：命令用于退出抽取式设备。--macos中不存在</div><div class="line">mcd：为mtools工具指令，可在MS-DOS文件系统中切换工作目录。--macos中不存在</div><div class="line">mdeltree：命令可用来删除 MSDOS 格式档案及目录。--macos中不存在</div><div class="line">mdu：命令用于显示MS-DOS目录所占用的磁盘空间。--macos中不存在</div><div class="line">mkdir：命令用于建立名称为 dirName 之子目录。</div><div class="line">mlabel：命令用于设定磁盘的标签(Label)。--macos中不存在</div><div class="line">mmd：命令用于在MS-DOS文件系统中建立目录。--macos中不存在</div><div class="line">mrd：命令用于删除MS-DOS文件系统中的目录。--macos中不存在</div><div class="line">mzip：命令是Zip/Jaz磁盘驱动器控制指令。--macos中不存在</div><div class="line"><span class="built_in">pwd</span>：命令用于显示工作目录。</div><div class="line">quota：命令用于显示磁盘已使用的空间与限制。</div><div class="line">mount：命令是经常会使用到的命令，它用于挂载Linux系统外的文件。</div><div class="line">mmount：命令用于挂入MS-DOS文件系统。--macos中不存在</div><div class="line">rmdir：命令删除空的目录。</div><div class="line">rmt：命令通过进程间通信远程控制磁带机。--macos中不存在</div><div class="line"><span class="built_in">stat</span>：命令用于显示inode内容。</div><div class="line">tree：命令用于以树状图列出目录的内容。--macos中不存在</div><div class="line">umount：命令用于卸除文件系统。</div><div class="line">ls：命令用于显示指定工作目录下之内容(列出目前工作目录所含之文件及子目录)。</div><div class="line">quotacheck：命令用于检查磁盘的使用空间与限制。</div><div class="line">quotaoff：命令用于关闭磁盘空间限制。</div><div class="line">lndir：命令用于连接目录内容。--macos中不存在</div><div class="line">repquota：命令用于检查磁盘空间限制的状态。</div><div class="line">quotaon：命令用于开启磁盘空间限制。</div></pre></td></tr></table></figure>
@@ -1282,372 +492,76 @@ var obj = Object.create(func.prototype);
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">repquota</div><div class="line">功能：repquota 命令用于检查磁盘空间限制的状态。</div><div class="line">补充说明：执行repquota指令，可报告磁盘空间限制的状况，清楚得知每位用户或每个群组已使用多少空间。</div><div class="line">语法：repquota [-aguv][文件系统...]</div><div class="line">参数说明：</div><div class="line">    -a：列出在/etc/fstab文件里，有加入quota设置的分区的使用状况，包括用户和群组。</div><div class="line">    -g：列出所有群组的磁盘空间限制。</div><div class="line">    -u：列出所有用户的磁盘空间限制。</div><div class="line">    -v：显示该用户或群组的所有空间限制。</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">quotaon</div><div class="line">功能：quotaon 命令用于开启磁盘空间限制。</div><div class="line">补充说明：执行quotaon指令可开启用户和群组的才磅秒年空间限制，各分区的文件系统根目录必须有quota.user和quota.group配置文件。</div><div class="line">语法：quotaon [-aguv][文件系统...]</div><div class="line">参数说明：</div><div class="line">    -a：开启在/ect/fstab文件里，有加入quota设置的分区的空间限制。</div><div class="line">    -g：开启群组的磁盘空间限制。</div><div class="line">    -u：开启用户的磁盘空间限制。</div><div class="line">    -v：显示指令指令执行过程。</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/07/27/css-often-used/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌子亦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/27/css-often-used/" itemprop="url">CSS常用样式记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T17:22:29+08:00">
-                2017-07-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="单侧边框线（0-5px）"><a href="#单侧边框线（0-5px）" class="headerlink" title="单侧边框线（0.5px）"></a>单侧边框线（0.5px）</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.border-top-line</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  &amp;:before &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">top</span>: -<span class="number">1px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">1px</span>;</div><div class="line">    <span class="attribute">background</span>: linear-gradient(<span class="number">180deg</span>, <span class="number">#fff</span> <span class="number">50%</span>, <span class="number">#ccc</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.border-bottom-line</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  &amp;:after &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">bottom</span>: -<span class="number">1px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">1px</span>;</div><div class="line">    <span class="attribute">background</span>: linear-gradient(<span class="number">0deg</span>, <span class="number">#fff</span> <span class="number">50%</span>, <span class="number">#ccc</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.border-left-line</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  &amp;:before &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">1px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">background</span>: linear-gradient(<span class="number">90deg</span>, <span class="number">#fff</span> <span class="number">50%</span>, <span class="number">#ccc</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.border-right-line</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  &amp;:after &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">1px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">background</span>: linear-gradient(-<span class="number">90deg</span>, <span class="number">#fff</span> <span class="number">50%</span>, <span class="number">#ccc</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lainazy.com/2017/07/24/scss/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="凌子亦">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/scss/" itemprop="url">Scss使用指南</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T21:50:17+08:00">
-                2017-07-24
-              </time>
+              <a href="/2017/07/27/css-often-used/" rel="next" title="CSS常用样式记录">
+                <i class="fa fa-chevron-left"></i> CSS常用样式记录
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2017/09/11/git-cmd/" rel="prev" title="Git命令">
+                Git命令 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h4 id="规则嵌套"><a href="#规则嵌套" class="headerlink" title="规则嵌套"></a>规则嵌套</h4><blockquote>
-<p>规则嵌套主要用来避免重复写父选择器<br>&amp;符号用来表示父选择器的引用，不写&amp;相当于在子选择器前面添加</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#content</span> &#123;</div><div class="line">  <span class="selector-tag">article</span> &#123;</div><div class="line">    <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span> &#125;</div><div class="line">    p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</div><div class="line">  &#125;</div><div class="line">  aside &#123; background-color: <span class="number">#EEE</span> &#125;    -- 相当于 &amp; aside &#123; background-color: <span class="number">#EEE</span> &#125;</div><div class="line">&#125;</div><div class="line">// 编译后</div><div class="line"><span class="number">#c</span>ontent article h1 &#123; color: <span class="number">#333</span> &#125;</div><div class="line"><span class="number">#c</span>ontent article p &#123; margin-bottom: <span class="number">1.4em</span> &#125;</div><div class="line"><span class="number">#c</span>ontent aside &#123; background-color: <span class="number">#EEE</span> &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">article</span> &#123;</div><div class="line">  ~ <span class="selector-tag">article</span> &#123; <span class="attribute">border-top</span>: <span class="number">1px</span> dashed <span class="number">#ccc</span> &#125;    -- 相当于 &amp; ~ article &#123; border-top: <span class="number">1px</span> dashed <span class="number">#ccc</span> &#125;</div><div class="line">  &gt; section &#123; background: <span class="number">#eee</span> &#125;    -- 相当于 &amp; &gt; section &#123; background: <span class="number">#eee</span> &#125;</div><div class="line">  dl &gt; &#123;</div><div class="line">    dt &#123; color: <span class="number">#333</span> &#125;</div><div class="line">    dd &#123; color: <span class="number">#555</span> &#125;</div><div class="line">  &#125;</div><div class="line">  nav + &amp; &#123; margin-top: <span class="number">0</span> &#125;</div><div class="line">&#125;</div><div class="line">// 编译后</div><div class="line">article ~ article &#123; border-top: <span class="number">1px</span> dashed <span class="number">#ccc</span> &#125;</div><div class="line">article &gt; footer &#123; background: <span class="number">#eee</span> &#125;</div><div class="line">article dl &gt; dt &#123; color: <span class="number">#333</span> &#125;</div><div class="line">article dl &gt; dd &#123; color: <span class="number">#555</span> &#125;</div><div class="line">nav + article &#123; margin-top: <span class="number">0</span> &#125;</div></pre></td></tr></table></figure>
-<h4 id="属性嵌套"><a href="#属性嵌套" class="headerlink" title="属性嵌套"></a>属性嵌套</h4><blockquote>
-<p>属性嵌套主要用来避免重复写根属性<br>属性嵌套根属性和规则嵌套选择器的书写区别在于属性嵌套根属性后面有个冒号(:)</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">border</span>: &#123;</div><div class="line">     style: solid;</div><div class="line">     <span class="attribute">width</span>: <span class="number">1px</span>;</div><div class="line">     <span class="attribute">color</span>: <span class="number">#ccc</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">border-style</span>: solid;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">1px</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="number">#ccc</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span> &#123;</div><div class="line">     left: <span class="number">0px</span>;</div><div class="line">     <span class="attribute">right</span>: <span class="number">0px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">border-left</span>: <span class="number">0px</span>;</div><div class="line">  <span class="attribute">border-right</span>: <span class="number">0px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><blockquote>
-<p>$符号用来标识变量<br>定义的变量用在样式声明的属性值中</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$nav-color</span>: <span class="number">#F90</span>;</div><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="variable">$width</span>: <span class="number">100px</span>;    -- 定义在<span class="selector-class">.nav</span>规则内部的<span class="variable">$width</span>只能在<span class="selector-class">.nav</span>内部使用</div><div class="line">  <span class="attribute">width</span>: <span class="variable">$width</span>;</div><div class="line">  <span class="attribute">color</span>: <span class="variable">$nav-color</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#F90</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>变量默认值：!default<br>如果变量没有赋值或赋值为null，变量值为!default标记的默认值</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$content</span>: <span class="string">"First content"</span>;</div><div class="line"><span class="variable">$content</span>: <span class="string">"Second content?"</span> !default;</div><div class="line"><span class="variable">$new_content</span>: <span class="string">"First time reference"</span> !default;</div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="variable">$content</span>;</div><div class="line">  new-<span class="attribute">content</span>: <span class="variable">$new_content</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">"First content"</span>;</div><div class="line">  new-<span class="attribute">content</span>: <span class="string">"First time reference"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$content</span>: null;</div><div class="line"><span class="variable">$content</span>: <span class="string">"Non-null content"</span> !default;</div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="variable">$content</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">"Non-null content"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><blockquote>
-<p>@function用来自定义一个scss函数<br>@return用来返回函数的返回值<br>@function定义的函数中必须有@return<br>定义的函数用在样式声明的属性值中</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$grid-width</span>: <span class="number">40px</span>;</div><div class="line"><span class="variable">$gutter-width</span>: <span class="number">10px</span>;</div><div class="line">@function grid-width(<span class="variable">$n</span>) &#123;</div><div class="line">  @return <span class="variable">$n</span> * <span class="variable">$grid-width</span> + (<span class="variable">$n</span> - 1) * <span class="variable">$gutter-width</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#sidebar</span> &#123; <span class="attribute">width</span>: grid-width(<span class="number">5</span>); &#125;    -- 等同于 <span class="selector-id">#sidebar</span> &#123; <span class="attribute">width</span>: grid-width(<span class="variable">$n</span>: <span class="number">5</span>); &#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-id">#sidebar</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">240px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h4><blockquote>
-<p>@import用来导入其它独立的css/scss片段<br>使用@import时，.sass和.scss文件后缀可以省略<br>局部文件(片段)：文件名以下划线(_)开头，编译时不会生成对应的css文件<br>局部文件(片段)的导入可以省略文件名中的下划线(_)<br>同一目录下不能同时存在带下划线和不带下划线的同名文件，如_colors.scss不能和colors.scss共存</p>
-<p>原生的CSS @import：会造成浏览器解析css时有额外的下载<br>以下几种情况会使用原生的CSS @import</p>
-<ul>
-<li>被导入的文件扩展名是.css，如@import “foo.css”;</li>
-<li>被导入的文件名是一个url地址，如@import “<a href="http://foo.com/bar" target="_blank" rel="external">http://foo.com/bar</a>“;</li>
-<li>被导入的文件名是css的url()值，如@import url(foo);</li>
-<li>@import包含了任何媒体查询，如@import “foo” screen;</li>
-</ul>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 普通@import</span></div><div class="line"><span class="comment">// _example.scss</span></div><div class="line"><span class="selector-class">.example</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="comment">// main.scss</span></div><div class="line">@<span class="keyword">import</span> <span class="string">"example"</span>;</div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  <span class="attribute">color</span>: blue;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="comment">// main.scss</span></div><div class="line"><span class="selector-class">.example</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  <span class="attribute">color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 嵌套@import</span></div><div class="line"><span class="comment">// _example.scss</span></div><div class="line"><span class="selector-class">.example</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="comment">// main.scss</span></div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  @<span class="keyword">import</span> <span class="string">"example"</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="comment">// main.scss</span></div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">  <span class="selector-class">.example</span> &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一个@import引入多个文件</span></div><div class="line">@<span class="keyword">import</span> <span class="string">"example"</span>, <span class="string">"colors"</span>;</div></pre></td></tr></table></figure>
-<h4 id="mixin-amp-include-amp-content"><a href="#mixin-amp-include-amp-content" class="headerlink" title="@mixin &amp; @include &amp; @content"></a>@mixin &amp; @include &amp; @content</h4><blockquote>
-<p>@mixin主要用来将重用的css代码提取出来<br>@include用来引入这些被@mixin提取出来的css代码<br>@mixin定义中可以@include其它@mixin</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> large-text &#123;</div><div class="line">  <span class="attribute">font</span>: &#123;    -- 注意这是属性嵌套</div><div class="line">    family: Arial;</div><div class="line">    size: <span class="number">20px</span>;</div><div class="line">    weight: bold;</div><div class="line">  &#125;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#ff0000</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.page-title</span> &#123;</div><div class="line">  @<span class="keyword">include</span> large-text;    -- 注意没有""，和@<span class="keyword">import</span>不同</div><div class="line">  padding: 4px;</div><div class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.page-title</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: Arial;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#ff0000</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">4px</span>;</div><div class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> silly-links &#123;</div><div class="line">  <span class="selector-tag">a</span> &#123;    -- 注意这是规则嵌套</div><div class="line">    <span class="attribute">color</span>: blue;</div><div class="line">    <span class="attribute">background-color</span>: red;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">include</span> silly-links;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">color</span>: blue;</div><div class="line">  <span class="attribute">background-color</span>: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> no-bullets &#123;</div><div class="line">  <span class="attribute">list-style</span>: none;</div><div class="line">  <span class="selector-tag">li</span> &#123;</div><div class="line">    <span class="attribute">list-style-image</span>: none;</div><div class="line">    <span class="attribute">list-style-type</span>: none;</div><div class="line">    <span class="attribute">margin-left</span>: <span class="number">0px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span><span class="selector-class">.plain</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#444</span>;</div><div class="line">  @<span class="keyword">include</span> no-bullets;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">ul</span><span class="selector-class">.plain</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#444</span>;</div><div class="line">  <span class="attribute">list-style</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span><span class="selector-class">.plain</span> <span class="selector-tag">li</span> &#123;</div><div class="line">  <span class="attribute">list-style-image</span>: none;</div><div class="line">  <span class="attribute">list-style-type</span>: none;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">0px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> highlighted-background &#123; <span class="attribute">background-color</span>: <span class="number">#fc0</span>; &#125;</div><div class="line">@<span class="keyword">mixin</span> header-text &#123; <span class="attribute">font-size</span>: <span class="number">20px</span>; &#125;</div><div class="line">@<span class="keyword">mixin</span> compound &#123;</div><div class="line">  @<span class="keyword">include</span> highlighted-background;</div><div class="line">  @<span class="keyword">include</span> header-text;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>@mixin定义时可以设置参数<br>参数可以设置默认值<br>参数个数不确定时，可以使用列表表示形式(list…)，如$shadows…<br>@include传参时也可以使用列表表示形式(list…)<br>列表表示形式只能放在参数最后，表示剩余参数</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> sexy-border(<span class="variable">$color</span>, <span class="variable">$width</span>) &#123;</div><div class="line">  <span class="attribute">border</span>: &#123;</div><div class="line">    color: <span class="variable">$color</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>;</div><div class="line">    <span class="selector-tag">style</span>: dashed;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123; @<span class="keyword">include</span> sexy-border(blue, 1in); &#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">border-color</span>: blue;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">1in</span>;</div><div class="line">  <span class="attribute">border-style</span>: dashed;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> sexy-border(<span class="variable">$color</span>, <span class="variable">$width</span>: 1in) &#123;</div><div class="line">  <span class="attribute">border</span>: &#123;</div><div class="line">    color: <span class="variable">$color</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>;</div><div class="line">    <span class="selector-tag">style</span>: dashed;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123; @<span class="keyword">include</span> sexy-border(blue); &#125;    -- 等同于 <span class="selector-tag">p</span> &#123; @<span class="keyword">include</span> sexy-border(<span class="variable">$color</span>: blue); &#125;</div><div class="line"><span class="selector-tag">h1</span> &#123; @<span class="keyword">include</span> sexy-border(blue, 2in); &#125;    -- 等同于 <span class="selector-tag">h1</span> &#123; @<span class="keyword">include</span> sexy-border(<span class="variable">$color</span>: blue, <span class="variable">$width</span>: 2in); &#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">border-color</span>: blue;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">1in</span>;</div><div class="line">  <span class="attribute">border-style</span>: dashed;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">h1</span> &#123;</div><div class="line">  <span class="attribute">border-color</span>: blue;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">2in</span>;</div><div class="line">  <span class="attribute">border-style</span>: dashed;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> box-shadow(<span class="variable">$shadows</span>...) &#123;</div><div class="line">  -moz-<span class="attribute">box-shadow</span>: <span class="variable">$shadows</span>;</div><div class="line">  -webkit-<span class="attribute">box-shadow</span>: <span class="variable">$shadows</span>;</div><div class="line">  <span class="attribute">box-shadow</span>: <span class="variable">$shadows</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.shadows</span> &#123;</div><div class="line">  @<span class="keyword">include</span> box-shadow(<span class="number">0px</span> 4px 5px <span class="number">#666</span>, 2px 6px 10px <span class="number">#999</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.shadows</span> &#123;</div><div class="line">  -moz-<span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</div><div class="line">  -webkit-<span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</div><div class="line">  <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> colors(<span class="variable">$text</span>, <span class="variable">$background</span>, <span class="variable">$border</span>) &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="variable">$text</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="variable">$background</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="variable">$border</span>;</div><div class="line">&#125;</div><div class="line"><span class="variable">$values</span>: <span class="number">#ff0000</span>, <span class="number">#00ff00</span>, <span class="number">#0000ff</span>;</div><div class="line"><span class="selector-class">.primary</span> &#123;</div><div class="line">  @<span class="keyword">include</span> colors(<span class="variable">$values</span>...);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.primary</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#ff0000</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#00ff00</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="number">#0000ff</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>@mixin定义时可以在内部设置一个@content<br>@include引入@mixin时如果带有css声明块，会将声明块中的css声明放置到@content位置</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$color</span>: white;</div><div class="line">@<span class="keyword">mixin</span> colors(<span class="variable">$color</span>: blue) &#123;</div><div class="line">  <span class="attribute">background-color</span>: <span class="variable">$color</span>;</div><div class="line">  @<span class="keyword">content</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="variable">$color</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.colors</span> &#123;</div><div class="line">  @<span class="keyword">include</span> colors &#123; <span class="attribute">color</span>: <span class="variable">$color</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.colors</span> &#123;</div><div class="line">  <span class="attribute">background-color</span>: blue;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">border-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="extend"><a href="#extend" class="headerlink" title="@extend"></a>@extend</h4><blockquote>
-<p>@extend生成的代码量比@mixin相对更少<br>@extend的原理：如果.seriousError @extend .error，那么样式表中的任何一处.error选择器都用[.error, .seriousError]这一选择器组进行替换</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.error</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.seriousError</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> .error;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.error</span>, <span class="selector-class">.seriousError</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.seriousError</span> &#123;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.hoverlink</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> a:hover;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.comment</span> <span class="selector-tag">a</span><span class="selector-class">.user</span>:hover &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.comment</span> <span class="selector-tag">a</span><span class="selector-class">.user</span>:hover, <span class="selector-class">.comment</span> <span class="selector-class">.user</span><span class="selector-class">.hoverlink</span> &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 多继承</span></div><div class="line"><span class="selector-class">.error</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.attention</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">3em</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.seriousError</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> .error;</div><div class="line">  @<span class="keyword">extend</span> .attention;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.error</span>, <span class="selector-class">.seriousError</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.attention</span>, <span class="selector-class">.seriousError</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">3em</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.seriousError</span> &#123;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 链式继承</span></div><div class="line"><span class="selector-class">.error</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.seriousError</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> .error;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.criticalError</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> .seriousError;</div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="attribute">top</span>: <span class="number">10%</span>;</div><div class="line">  <span class="attribute">bottom</span>: <span class="number">10%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">10%</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">10%</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.error</span>, <span class="selector-class">.seriousError</span>, <span class="selector-class">.criticalError</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.seriousError</span>, <span class="selector-class">.criticalError</span> &#123;</div><div class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.criticalError</span> &#123;</div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="attribute">top</span>: <span class="number">10%</span>;</div><div class="line">  <span class="attribute">bottom</span>: <span class="number">10%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">10%</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">10%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>两条选择器序列的@entend会生成两个新的选择器<br>一个第一条序列在第二条序列之前，一个第二条序列在第一条序列之前<br>尽量不要使用这种序列间的@entend</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.tabbar</span> <span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#demo</span> <span class="selector-class">.overview</span> <span class="selector-class">.fakelink</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> a;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.tabbar</span> <span class="selector-tag">a</span>,</div><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.tabbar</span> <span class="selector-id">#demo</span> <span class="selector-class">.overview</span> <span class="selector-class">.fakelink</span>,</div><div class="line"><span class="selector-id">#demo</span> <span class="selector-class">.overview</span> <span class="selector-id">#admin</span> <span class="selector-class">.tabbar</span> <span class="selector-class">.fakelink</span> &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.tabbar</span> <span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.overview</span> <span class="selector-class">.fakelink</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> a;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.tabbar</span> <span class="selector-tag">a</span>,</div><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.tabbar</span> <span class="selector-class">.overview</span> <span class="selector-class">.fakelink</span>,</div><div class="line"><span class="selector-id">#admin</span> <span class="selector-class">.overview</span> <span class="selector-class">.tabbar</span> <span class="selector-class">.fakelink</span> &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>使用占位选择器(%)来替代具体的选择器<br>使用了占位选择器(%)的规则自身不会被渲染</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// This ruleset won't be rendered on its own.</span></div><div class="line"><span class="selector-id">#context</span> <span class="selector-tag">a</span>%extreme &#123;</div><div class="line">  <span class="attribute">color</span>: blue;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.notice</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> %extreme;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-id">#context</span> <span class="selector-tag">a</span><span class="selector-class">.notice</span> &#123;</div><div class="line">  <span class="attribute">color</span>: blue;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在指令中使用@extend需要使两个选择器处于同一个指令块</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// works fine</span></div><div class="line">@<span class="keyword">media</span> print &#123;</div><div class="line">  <span class="selector-class">.error</span> &#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="selector-class">.seriousError</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> .error;</div><div class="line">    <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// works error</span></div><div class="line"><span class="selector-class">.error</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> print &#123;</div><div class="line">  <span class="selector-class">.seriousError</span> &#123;</div><div class="line">    <span class="comment">// INVALID EXTEND: .error is used outside of the "@media print" directive</span></div><div class="line">    @<span class="keyword">extend</span> .error;</div><div class="line">    <span class="attribute">border-width</span>: <span class="number">3px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><blockquote>
-<p>具体运算规则参考：<a href="http://sass.bootcss.com/docs/sass-reference/#yun-suan" target="_blank" rel="external">SASS中文文档 - 运算</a></p>
-</blockquote>
-<h4 id="插入符"><a href="#插入符" class="headerlink" title="插入符"></a>插入符</h4><blockquote>
-<p>#{}用来将变量值插入到指定位置</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$name</span>: foo;</div><div class="line"><span class="variable">$attr</span>: border;</div><div class="line"><span class="selector-tag">p</span>.#&#123;<span class="variable">$name</span>&#125; &#123;</div><div class="line">  #&#123;<span class="variable">$attr</span>&#125;-<span class="attribute">color</span>: blue;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-class">.foo</span> &#123;</div><div class="line">  <span class="attribute">border-color</span>: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="控制指令"><a href="#控制指令" class="headerlink" title="控制指令"></a>控制指令</h4><blockquote>
-<p>@if &amp; @else if &amp; @else</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$type</span>: monster;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  @<span class="keyword">if</span> <span class="variable">$type</span> == ocean &#123;</div><div class="line">    <span class="attribute">color</span>: blue;</div><div class="line">  &#125; @<span class="keyword">else</span> if <span class="variable">$type</span> == matador &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">  &#125; @<span class="keyword">else</span> if <span class="variable">$type</span> == monster &#123;</div><div class="line">    <span class="attribute">color</span>: green;</div><div class="line">  &#125; @<span class="keyword">else</span> &#123;</div><div class="line">    <span class="attribute">color</span>: black;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: green;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>@for<br>@for $var from &lt;start&gt; through &lt;end&gt;    – 包含&lt;end&gt;<br>@for $var from &lt;start&gt; to &lt;end&gt;    – 不包含&lt;end&gt;<br>$var可以是任意变量名</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 3 &#123;</div><div class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123; <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.item-1</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-3</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">6em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 to 3 &#123;</div><div class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123; <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.item-1</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>@each<br>@each $var in &lt;list&gt;<br>$var可以是任意变量名</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">each</span> <span class="variable">$animal</span> in puma, sea-slug, egret, salamander &#123;</div><div class="line">  .#&#123;<span class="variable">$animal</span>&#125;-<span class="attribute">icon</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: url(<span class="string">'/images/#&#123;$animal&#125;.png'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.puma-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/puma.png'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.sea-slug-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/sea-slug.png'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.egret-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/egret.png'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.salamander-icon</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: url(<span class="string">'/images/salamander.png'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>@while</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$i</span>: <span class="number">6</span>;</div><div class="line">@<span class="keyword">while</span> <span class="variable">$i</span> &gt; 0 &#123;</div><div class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123; <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>; &#125;</div><div class="line">  <span class="variable">$i</span>: <span class="variable">$i</span> - <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.item-6</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">12em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-4</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">8em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.item-2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.sidebar</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">  @<span class="keyword">media</span> screen and (orientation: landscape) &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line"><span class="selector-class">.sidebar</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> screen and (orientation: landscape) &#123;</div><div class="line">  <span class="selector-class">.sidebar</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> screen &#123;</div><div class="line">  <span class="selector-class">.sidebar</span> &#123;</div><div class="line">    @<span class="keyword">media</span> (orientation: landscape) &#123;</div><div class="line">      <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 编译后</span></div><div class="line">@<span class="keyword">media</span> screen and (orientation: landscape) &#123;</div><div class="line">  <span class="selector-class">.sidebar</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><blockquote>
-<p>css的标准注释：/<em> … </em>/<br>scss的静默注释：// … ，注释内容不会出现在生成的css文件中</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;    <span class="comment">// 这种注释内容不会出现在生成的css文件中</span></div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;    <span class="comment">/* 这种注释内容会出现在生成的css文件中 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h4><blockquote>
-<p><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="external">SASS中文文档</a><br><a href="http://www.sasschina.com/guide/" target="_blank" rel="external">SASS基础教程</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1655,6 +569,10 @@ var obj = Object.create(func.prototype);
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1675,8 +593,17 @@ var obj = Object.create(func.prototype);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -1729,6 +656,22 @@ var obj = Object.create(func.prototype);
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#文件管理"><span class="nav-number">1.</span> <span class="nav-text">文件管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#文档编辑"><span class="nav-number">2.</span> <span class="nav-text">文档编辑</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#文件传输"><span class="nav-number">3.</span> <span class="nav-text">文件传输</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#磁盘管理"><span class="nav-number">4.</span> <span class="nav-text">磁盘管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#文件管理-1"><span class="nav-number">5.</span> <span class="nav-text">文件管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#文档编辑-1"><span class="nav-number">6.</span> <span class="nav-text">文档编辑</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#文件传输-1"><span class="nav-number">7.</span> <span class="nav-text">文件传输</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#磁盘管理-1"><span class="nav-number">8.</span> <span class="nav-text">磁盘管理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1849,10 +792,10 @@ var obj = Object.create(func.prototype);
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
