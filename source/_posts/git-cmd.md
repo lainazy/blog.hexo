@@ -16,7 +16,7 @@ tags: git
 - `git checkout develop` -- 切换到本地仓库develop分支
 - `git pull origin develop` -- 从远程仓库develop分支拉取最新数据到本地仓库当前(个人)分支，有冲突时解决
   - `git status -> git add . -> git commit -m '注释'` -- 有冲突时执行
-- `git merge [--squash] <个人分支名>` -- 将本地仓库中个人分支的代码合并到本地仓库develop分支，一般没有冲突，若有冲突解决，--squash选项表示合并完之后不自动commit
+- `git merge [--squash] <个人分支名>` -- 将本地仓库中个人分支的代码合并到本地仓库develop分支，一般没有冲突，若有冲突解决，--squash选项用来将个人分支中的多个commit对象压扁成一个，并且合并完之后不自动commit
   - `git status -> git add . -> git commit -m '注释'` -- 有冲突时执行
 - `git push origin develop` -- 将本地仓库develop分支内容推送到远程仓库develop分支
 - `git checkout <个人分支名>` -- 切换回本地仓库个人分支
